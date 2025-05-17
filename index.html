@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Omar Pelcastre Cabrera | Business Intelligence Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
   <style>
     :root {
-      --primary-color: #2c3e50;   /* Professional navy blue */
-      --secondary-color: #ecf0f1; /* Light gray background */
+      --primary-color: #2c3e50;
+      --secondary-color: #ecf0f1;
       --text-color: #2c3e50;
-      --accent-color: #2980b9;   /* Blue highlight */
-      --heading-color: #1a5276;  /* Subtle but distinct deep blue */
+      --accent-color: #2980b9;
+      --heading-color: #1a5276;
     }
 
     body {
@@ -67,6 +68,18 @@
       background-color: var(--primary-color);
       color: white;
     }
+
+    #pdf-controls {
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    #pdf-render {
+      display: block;
+      margin: 1rem auto;
+      max-width: 100%;
+      border: 1px solid #ccc;
+    }
   </style>
 </head>
 <body>
@@ -99,6 +112,14 @@
       <li><strong>Equity Research Presentation</strong> – Winning team presentation from the CFAOC Portfolio Competition, including valuation analysis and sector overview.</li>
       <li><strong>Sales Data Visualization</strong> – Tableau project to display sales metrics and highlight performance trends.</li>
     </ul>
+
+    <h3>MGIF Annual Report Viewer</h3>
+    <canvas id="pdf-render"></canvas>
+    <div id="pdf-controls">
+      <button onclick="prevPage()">Previous</button>
+      <span>Page: <span id="page-num"></span> / <span id="page-count"></span></span>
+      <button onclick="nextPage()">Next</button>
+    </div>
   </div>
 
   <div class="container" id="about">
@@ -126,5 +147,63 @@
   <footer>
     <p>&copy; 2025 Omar Pelcastre Cabrera</p>
   </footer>
+
+  <script>
+    const url = 'CO CAPITAL - MGIF Annual Report.pdf';
+    let pdfDoc = null,
+        pageNum = 1,
+        pageIsRendering = false,
+        pageNumIsPending = null;
+    const scale = 1.5,
+          canvas = document.getElementById('pdf-render'),
+          ctx = canvas.getContext('2d');
+
+    const renderPage = num => {
+      pageIsRendering = true;
+      pdfDoc.getPage(num).then(page => {
+        const viewport = page.getViewport({ scale });
+        canvas.height = viewport.height;
+        canvas.width = viewport.width;
+        const renderCtx = {
+          canvasContext: ctx,
+          viewport
+        };
+        page.render(renderCtx).promise.then(() => {
+          pageIsRendering = false;
+          if (pageNumIsPending !== null) {
+            renderPage(pageNumIsPending);
+            pageNumIsPending = null;
+          }
+        });
+        document.getElementById('page-num').textContent = num;
+      });
+    };
+
+    const queueRenderPage = num => {
+      if (pageIsRendering) {
+        pageNumIsPending = num;
+      } else {
+        renderPage(num);
+      }
+    };
+
+    const prevPage = () => {
+      if (pageNum <= 1) return;
+      pageNum--;
+      queueRenderPage(pageNum);
+    };
+
+    const nextPage = () => {
+      if (pageNum >= pdfDoc.numPages) return;
+      pageNum++;
+      queueRenderPage(pageNum);
+    };
+
+    pdfjsLib.getDocument(url).promise.then(pdfDoc_ => {
+      pdfDoc = pdfDoc_;
+      document.getElementById('page-count').textContent = pdfDoc.numPages;
+      renderPage(pageNum);
+    });
+  </script>
 </body>
 </html>
