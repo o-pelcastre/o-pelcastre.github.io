@@ -80,11 +80,52 @@
       max-width: 100%;
       border: 1px solid #ccc;
     }
+
+    .pdf-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+
+    .pdf-viewer {
+      flex: 1 1 400px;
+    }
+
+    .pdf-description {
+      flex: 1 1 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .download-btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background-color: var(--accent-color);
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 5px;
+      text-align: center;
+    }
+
+    .download-btn:hover {
+      background-color: #2471a3;
+    }
+
+    @media (max-width: 800px) {
+      .pdf-section {
+        flex-direction: column;
+      }
+    }
   </style>
 </head>
 <body>
   <p style="text-align:center; font-weight:600; margin-top:1rem; color:var(--primary-color); font-family: 'Inter', sans-serif;">Omar Pelcastre Cabrera</p>
   <header>
+    <h1>Omar Pelcastre Cabrera</h1>
     <p>Business Intelligence | Data Analysis | Financial Analysis | Python</p>
   </header>
 
@@ -113,11 +154,21 @@
     </ul>
 
     <h3>MGIF Annual Report Viewer</h3>
-    <canvas id="pdf-render"></canvas>
-    <div id="pdf-controls">
-      <button onclick="prevPage()">Previous</button>
-      <span>Page: <span id="page-num"></span> / <span id="page-count"></span></span>
-      <button onclick="nextPage()">Next</button>
+    <div class="pdf-section">
+      <div class="pdf-viewer">
+        <canvas id="pdf-render"></canvas>
+        <div id="pdf-controls">
+          <button onclick="prevPage()">Previous</button>
+          <span>Page: <span id="page-num"></span> / <span id="page-count"></span></span>
+          <button onclick="nextPage()">Next</button>
+        </div>
+      </div>
+      <div class="pdf-description">
+        <p><strong>CO CAPITAL - MGIF Annual Report</strong></p>
+        <p>This annual report showcases a comprehensive review of the investment fund’s performance, strategic allocation, and financial health. It includes analysis across asset classes, geographic exposure, and sector positioning.</p>
+        <p>As part of the team, I contributed to the preparation and review of portfolio summaries, built visualizations in Python, and cross-validated performance metrics with Excel-based models. This document demonstrates both technical accuracy and clear communication in financial reporting.</p>
+        <a class="download-btn" href="CO CAPITAL - MGIF Annual Report.pdf" download>Download PDF</a>
+      </div>
     </div>
   </div>
 
@@ -137,9 +188,9 @@
     <h2>Contact</h2>
     <p>You can reach out to me via:</p>
     <ul>
-      <li>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></li>
-      <li>LinkedIn: <a href="https://www.linkedin.com/in/omar-pelcastre-cabrera" target="_blank">LinkedIn Profile</a></li>
-      <li>GitHub: <a href="https://github.com/yourgithub" target="_blank">github.com/yourgithub</a></li>
+      <li>Email: <a href="mailto:opelcastre@gmail.com">opelcastre@gmail.com</a></li>
+      <li>LinkedIn: <a href="https://www.linkedin.com/in/opelcastre/" target="_blank">linkedin.com/in/opelcastre</a></li>
+      <li>GitHub: <a href="https://github.io/o-pelcastre" target="_blank">github.io/o-pelcastre</a></li>
     </ul>
   </div>
 
