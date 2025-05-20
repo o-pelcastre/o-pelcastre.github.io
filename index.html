@@ -168,15 +168,59 @@
         height: auto !important;
       }
     }
+    .header-text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      backdrop-filter: blur(10px);
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 2rem;
+      border-radius: 10px;
+    }
+
+    .menu-toggle {
+      display: none;
+      background-color: var(--accent-color);
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        background-color: var(--accent-color);
+        padding: 1rem 0;
+      }
+
+      nav.show {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+        width: 100%;
+        text-align: center;
+      }
+    }
 </style>
 </head>
 <body>
   
   <header>
-    <h1>Omar Pelcastre Cabrera</h1>
+    <div class="header-text">
+      <h1>Omar Pelcastre Cabrera</h1>
     <p>Business Intelligence | Data Analysis | Financial Analysis | Python</p>
+    </div>
   </header>
 
+  <button class="menu-toggle" onclick="toggleMenu()">? Menu</button>
   <nav>
     <a href="#home">Home</a>
     <a href="#portfolio">Portfolio</a>
@@ -346,5 +390,11 @@
       renderPage(pageNum);
     });
   </script>
+<script>
+  function toggleMenu() {
+    const nav = document.querySelector('nav');
+    nav.classList.toggle('show');
+  }
+</script>
 </body>
 </html>
