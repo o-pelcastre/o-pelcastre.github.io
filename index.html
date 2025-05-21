@@ -33,6 +33,17 @@
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
       backdrop-filter: blur(10px);
     }
+    header-text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      backdrop-filter: blur(10px);
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 2rem;
+      border-radius: 10px;
+    }
 
     nav {
       background-color: var(--accent-color);
@@ -185,17 +196,7 @@
         height: auto !important;
       }
     }
-    .header-text {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-      backdrop-filter: blur(10px);
-      background-color: rgba(0, 0, 0, 0.7);
-      padding: 2rem;
-      border-radius: 10px;
-    }
+
 
     .menu-toggle {
       display: none;
@@ -301,7 +302,7 @@
       </div>
     </div>
 
-    <h3 class="subheader">SMIF Fall 2019 Presentation</h3>
+    <h3 class="subheader">CFAOC - REQUEST FOR PROPOSAL - SMIF Fall 2019 Presentation</h3>
     <div class="pdf-section">
       <div class="pdf-viewer">
         <canvas id="pdf-render-smif"></canvas>
@@ -312,7 +313,7 @@
         </div>
       </div>
       <div class="pdf-description">
-        <p><strong>SMIF Fall 2019 Presentation</strong></p>
+        <p><strong>Student Managed Investment Fund - Fall 2019 Presentation</strong></p>
         <p>This project was a collaborative effort and our entire team contributed insights across each section. As the lead on fixed‐income allocation for our student‐managed fund, I began by gathering and cleaning yield and performance data across key bond subclasses—U.S. Treasuries, investment‐grade corporate bonds, and high‐yield issues. I analyzed metrics such as yield-to-maturity, duration, and credit spreads to understand each segment’s risk/return trade-off. In our portfolio modeling, I deliberately sized our duration exposure to benefit from potential rate declines, while preserving enough liquidity to rebalance quickly if conditions shifted. This process involved scripting in Python to pull FRED data, building dynamic Excel models for scenario analysis, and validating outputs against historical yield curve movements.</p>
         <p>Given the scope and timeline constraints of a student fund, we opted for broad-market ETFs rather than selecting individual bonds. Using ETFs allowed us to achieve our target exposures—40% Treasury, 45% corporate, and 15% high yield—without the operational complexity and lot-size restrictions of direct bond trading. This ETF-based strategy provided subclass-level diversification, intraday liquidity, and streamlined execution, ensuring our recommendations were both academically rigorous and practical within the fund’s framework.</p>
         <a class="download-btn" href="SMIF PRESENTATION FALL 2019.pdf" download>Download SMIF Presentation</a>
