@@ -140,9 +140,21 @@
     }
 
     @media (max-width: 600px) {
-      h1, h2, .subheader {
+      /* SMIF PDF mobile adjustments */
+      .pdf-viewer {
+        flex: 1 1 100% !important;
+      }
+      #pdf-render-smif {
+        width: 100% !important;
+        height: auto !important;
+      }
+      #pdf-controls-smif {
         text-align: center;
       }
+      #pdf-controls-smif button {
+        margin: 0.5rem;
+      }
+    }
       nav {
         flex-direction: column;
         gap: 1rem;
@@ -295,7 +307,8 @@
       </div>
       <div class="pdf-description">
         <p><strong>SMIF Fall 2019 Presentation</strong></p>
-        <p>Slides 28–34 cover the fund’s portfolio optimization and fixed income strategy. The team leveraged capital market outlooks to design a balanced asset mix—approximately 60% equities and 40% fixed income—aimed at maximizing risk-adjusted returns. The fixed income approach eschewed preferred stocks and intermediate bonds in favor of a diversified ETF lineup, including Treasury, corporate, and high-yield funds. Allocations of 40% Treasury, 45% corporate, and 15% high yield were selected based on Sharpe ratio and yield-to-maturity metrics, with detailed ETF selection criteria provided. A final allocation chart illustrates the implemented 40/45/15 split.</p>
+        <p>This project was a collaborative effort and our entire team contributed insights across each section. As the lead on fixed‐income allocation for our student‐managed fund, I began by gathering and cleaning yield and performance data across key bond subclasses—U.S. Treasuries, investment‐grade corporate bonds, and high‐yield issues. I analyzed metrics such as yield-to-maturity, duration, and credit spreads to understand each segment’s risk/return trade-off. In our portfolio modeling, I deliberately sized our duration exposure to benefit from potential rate declines, while preserving enough liquidity to rebalance quickly if conditions shifted. This process involved scripting in Python to pull FRED data, building dynamic Excel models for scenario analysis, and validating outputs against historical yield curve movements.</p>
+        <p>Given the scope and timeline constraints of a student fund, we opted for broad-market ETFs rather than selecting individual bonds. Using ETFs allowed us to achieve our target exposures—40% Treasury, 45% corporate, and 15% high yield—without the operational complexity and lot-size restrictions of direct bond trading. This ETF-based strategy provided subclass-level diversification, intraday liquidity, and streamlined execution, ensuring our recommendations were both academically rigorous and practical within the fund’s framework.</p>
         <a class="download-btn" href="SMIF PRESENTATION FALL 2019.pdf" download>Download SMIF Presentation</a>
       </div>
     </div>
