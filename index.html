@@ -87,7 +87,7 @@
     #pdf-render {
       display: block;
       margin: 1rem auto;
-      max-width: 65%;
+      max-width: 75%;
       border: 1px solid #ccc;
     }
 
@@ -99,7 +99,7 @@
     }
 
     .pdf-viewer {
-      flex: 1 1 50%;
+      flex: 1 1 400px;
     }
 
     .pdf-description {
@@ -168,7 +168,7 @@
       }
 
       #pdf-render {
-        width: auto !important;
+        width: 75% !important;
         height: auto !important;
       }
     }
@@ -210,6 +210,27 @@
       .menu-toggle {
         display: block;
         width: 100%;
+        text-align: center;
+      }
+    }
+    /* SMIF PDF viewer global styles */
+    #pdf-render-smif {
+      display: block;
+      margin: 1rem auto;
+      max-width: 75%;
+      border: 1px solid #ccc;
+    }
+    #pdf-controls-smif {
+      text-align: center;
+      margin-top: 1rem;
+    }
+    /* Mobile overrides for SMIF viewer */
+    @media (max-width: 600px) {
+      #pdf-render-smif {
+        width: 100% !important;
+        height: auto !important;
+      }
+      #pdf-controls-smif {
         text-align: center;
       }
     }
