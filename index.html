@@ -266,8 +266,16 @@
   </div>
 
   <div class="container" id="skills">
-    <h2>SKills and Certifications</h2>
-    <p>Coming soon!</p>
+    <h2>Skills & Certifications</h2>
+    <div class="skills-grid">
+      <div class="skill-item">
+        <img src="UC-7Z3LIBPL.jpg" alt="Python for Financial Analysis Certificate">
+      </div>
+      <div class="skill-item">
+        <img src="1601635052643.jfif" alt="Cal Poly Pomona Diploma">
+      </div>
+      <!-- Add more items here as needed -->
+    </div>
   </div>
 
   <div class="container" id="portfolio">
@@ -351,6 +359,30 @@
     flex-wrap: wrap;
   }
 
+  /* Skills & Certifications grid */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .skill-item img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .contact-grid {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+  }
+
   .contact-button {
     display: flex;
     flex-direction: column;
@@ -372,6 +404,11 @@
     width: 40px;
     height: 40px;
     margin-bottom: 0.5rem;
+    transition: transform 0.2s;
+  }
+
+  .contact-button:hover img {
+    transform: scale(1.2);
   }
 
   .contact-button span {
