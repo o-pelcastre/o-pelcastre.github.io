@@ -242,23 +242,6 @@
 
   <div class="container" id="portfolio">
     <h2>Portfolio</h2>
-    <h3 class="subheader">Student Managed Investment Fund - Update Presentation</h3>
-    <div class="pdf-section">
-      <div class="pdf-viewer">
-        <canvas id="pdf-render"></canvas>
-        <div id="pdf-controls">
-          <button onclick="prevPage()">Previous</button>
-          <span>Page: <span id="page-num"></span> / <span id="page-count"></span></span>
-          <button onclick="nextPage()">Next</button>
-        </div>
-      </div>
-      <div class="pdf-description">
-        <p><strong>SMIF Presentation - Update Presentation</strong></p>
-        
-        <a class="download-btn" href="SMIF PRESENTATION FALL 2019.pdf" download>Download PDF</a>
-      </div>
-    </div>
-    
     <h3 class="subheader">Seminar in Portfolio Management - Capstone Project</h3>
     <div class="pdf-section">
       <div class="pdf-viewer">
@@ -282,11 +265,30 @@
       <div>
         <iframe src="https://your-username-yield-curve-app.streamlit.app" width="100%" height="400" style="border:1px solid #ccc; border-radius:8px;" loading="lazy"></iframe>
         <p><a href="https://your-username-yield-curve-app.streamlit.app" target="_blank">View Full Dashboard</a></p>
-      </div>  
+      </div>
+    <h3 class="subheader">SMIF Fall 2019 Presentation</h3>
+    <div class="pdf-section">
+      <div class="pdf-viewer">
+        <canvas id="pdf-render-smif"></canvas>
+        <div id="pdf-controls-smif">
+          <button onclick="prevPageSmif()">Previous</button>
+          <span>Page: <span id="page-num-smif"></span> / <span id="page-count-smif"></span></span>
+          <button onclick="nextPageSmif()">Next</button>
+        </div>
+      </div>
+      <div class="pdf-description">
+        <p><strong>SMIF Fall 2019 Presentation</strong></p>
+        <p>Slides 28–34 cover the fund’s portfolio optimization and fixed income strategy. The team leveraged capital market outlooks to design a balanced asset mix—approximately 60% equities and 40% fixed income—aimed at maximizing risk-adjusted returns. The fixed income approach eschewed preferred stocks and intermediate bonds in favor of a diversified ETF lineup, including Treasury, corporate, and high-yield funds. Allocations of 40% Treasury, 45% corporate, and 15% high yield were selected based on Sharpe ratio and yield-to-maturity metrics, with detailed ETF selection criteria provided. A final allocation chart illustrates the implemented 40/45/15 split.</p>
+        <a class="download-btn" href="SMIF PRESENTATION FALL 2019.pdf" download>Download SMIF Presentation</a>
+      </div>
+    </div>
+    
   </div>
 
   
       
+
+
   <div class="container" id="about">
     <h2>About Me</h2>
     <p>I'm Omar Pelcastre Cabrera, a finance and business intelligence professional with a B.S. in Business Administration from Cal Poly Pomona, concentrating in Finance and Computer Information Systems. During my time at the university, I served as president of the student-managed investment fund, where I was part of the team led a group of talented individuals to a first-place finish in a CFAOC-sponsored portfolio competition. These experiences gave me hands-on exposure to equity research, financial strategy, and data analytics&mdash;foundations I continue to build on today.</p>
@@ -416,8 +418,58 @@
       renderPage(pageNum);
     });
   </script>
+
 <script>
-  function toggleMenu() {
+  // SMIF PDF viewer
+  const urlSmif = 'SMIF PRESENTATION FALL 2019.pdf';
+  let pdfDocSmif = null, pageNumSmif = 28, pageIsRenderingSmif = false, pageNumPendingSmif = null;
+  const scaleSmif = 1.5, canvasSmif = document.getElementById('pdf-render-smif'), ctxSmif = canvasSmif.getContext('2d');
+
+  const renderPageSmif = num => {
+    pageIsRenderingSmif = true;
+    pdfDocSmif.getPage(num).then(page => {
+      const viewport = page.getViewport({ scale: scaleSmif });
+      canvasSmif.height = viewport.height;
+      canvasSmif.width = viewport.width;
+      page.render({ canvasContext: ctxSmif, viewport }).promise.then(() => {
+        pageIsRenderingSmif = false;
+        if (pageNumPendingSmif !== null) {
+          renderPageSmif(pageNumPendingSmif);
+          pageNumPendingSmif = null;
+        }
+      });
+      document.getElementById('page-num-smif').textContent = num;
+    });
+  };
+
+  const queueRenderPageSmif = num => {
+    if (pageIsRenderingSmif) {
+      pageNumPendingSmif = num;
+    } else {
+      renderPageSmif(num);
+    }
+  };
+
+  const prevPageSmif = () => {
+    if (pageNumSmif <= 1) return;
+    pageNumSmif--;
+    queueRenderPageSmif(pageNumSmif);
+  };
+
+  const nextPageSmif = () => {
+    if (pageNumSmif >= pdfDocSmif.numPages) return;
+    pageNumSmif++;
+    queueRenderPageSmif(pageNumSmif);
+  };
+
+  pdfjsLib.getDocument(urlSmif).promise.then(pdfDoc_ => {
+    pdfDocSmif = pdfDoc_;
+    document.getElementById('page-count-smif').textContent = pdfDocSmif.numPages;
+    renderPageSmif(pageNumSmif);
+  });
+</script>
+
+<script>  function toggleMenu() {
     const nav = document.querySelector('nav');
     nav.classList.toggle('show');
   }
