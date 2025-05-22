@@ -1,378 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Omar Pelcastre Cabrera | Business Intelligence Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
-  <style>
-    :root {
-      --primary-color: #2c3e50;
-      --secondary-color: #ecf0f1;
-      --text-color: #2c3e50;
-      --accent-color: #2980b9;
-      --heading-color: #1a5276;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Source Sans Pro', sans-serif;
-      background-color: var(--secondary-color);
-      color: var(--text-color);
-      line-height: 1.7;
-      font-size: 1.05rem;
-    }
-
-	header {
-	  background: url('/images/pngtree-d-render-of-seo-optimization-stock-trading-data-analytics-web-analytics-picture-image_3929617.png') center/cover no-repeat;
-	  position: relative;
-	  padding: 2.5rem 1.5rem;
-	  text-align: center;
-	  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-	}
-
-	.header-overlay {
-	  background-color: rgba(255, 255, 255, 0.85);
-	  display: inline-block;
-	  padding: 2rem;
-	  border-radius: 10px;
-	  color: #2c3e50; /* darker text for contrast on light background */
-	}
-    
-
-    nav {
-      background-color: var(--accent-color);
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      padding: 1rem 0;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    .container {
-      max-width: 80%;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-
-    h1 {
-      font-size: 5rem;
-      margin: 0;
-      line-height: 1.3;
-    }
-
-    h2 {
-      color: #4d5656;
-      font-size: 1.8rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      margin: 0 auto 1rem;
-      border-bottom: 3px solid var(--accent-color);
-      padding-bottom: 0.5rem;
-      
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      background-color: var(--primary-color);
-      color: white;
-    }
-
-    #pdf-controls {
-      text-align: center;
-      margin-top: 1rem;
-    }
-
-    #pdf-render {
-      display: block;
-      margin: 1rem auto;
-      max-width: 75%;
-      border: 1px solid #ccc;
-    }
-
-    .pdf-section {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      margin-top: 1rem;
-    }
-
-    .pdf-viewer {
-      flex: 1 1 400px;
-    }
-
-    .pdf-description {
-      flex: 1 1 400px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .download-btn {
-      display: block;
-      margin: 1rem auto 0 auto;
-      padding: 0.5rem 1rem;
-      background-color: var(--accent-color);
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      border-radius: 5px;
-      text-align: center;
-      width: 50%;
-    }
-
-    .download-btn:hover {
-      background-color: #2471a3;
-    }
-
-    @media (max-width: 800px) {
-      .pdf-section {
-        flex-direction: column;
-      }
-    }
-      .subheader {
-      color: white;
-      background-color: #5d6d7e;
-      display: inline-block;
-      padding: 0.4rem 0.8rem;
-      border-radius: 4px;
-    }
-
-    @media (max-width: 600px) {
-      /* SMIF PDF mobile adjustments */
-      .pdf-viewer {
-        flex: 1 1 100% !important;
-      }
-      #pdf-render-smif {
-        width: 100% !important;
-        height: auto !important;
-      }
-      #pdf-controls-smif {
-        text-align: center;
-      }
-      #pdf-controls-smif button {
-        margin: 0.5rem;
-      }
-    }
-
-
-      .container {
-        padding: 0 0.5rem;
-      }
-
-      h1, h2, .subheader {
-        font-size: 1.2rem;
-        padding: 0.3rem 0.6rem;
-      }
-
-      .download-btn {
-        width: 50%;
-        text-align: center;
-      }
-
-      #pdf-controls button {
-        margin: 0.25rem;
-        padding: 0.4rem 0.6rem;
-      }
-
-      #pdf-render {
-        width: 75% !important;
-        height: auto !important;
-      }
-    }
-    .header-text {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-      backdrop-filter: blur(10px);
-      background-color: rgba(0, 0, 0, 0.4);
-      padding: 2rem;
-      border-radius: 10px;
-    }
-
-
-    .menu-toggle {
-      display: none;
-      background-color: var(--accent-color);
-      border: none;
-      color: white;
-      font-size: 1.5rem;
-      padding: 0.5rem 1rem;
-      cursor: pointer;
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        display: none;
-        flex-direction: column;
-        align-items: center;
-        background-color: var(--accent-color);
-        padding: 1rem 0;
-      }
-
-      nav.show {
-        display: flex;
-      }
-
-      .menu-toggle {
-        display: block;
-        width: 100%;
-        text-align: center;
-      }
-    }
-    /* SMIF PDF viewer global styles */
-    #pdf-render-smif {
-      display: block;
-      margin: 1rem auto;
-      max-width: 75%;
-      border: 1px solid #ccc;
-    }
-    #pdf-controls-smif {
-      text-align: center;
-      margin-top: 1rem;
-    }
-    /* Mobile overrides for SMIF viewer */
-    @media (max-width: 600px) {
-      #pdf-render-smif {
-        width: 100% !important;
-        height: auto !important;
-      }
-      #pdf-controls-smif {
-        text-align: center;
-      }
-    }
-</style>
-</head>
-<body>
-  
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Omar Pelcastre Cabrera | Business Intelligence Portfolio
+  </title>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&amp;display=swap" rel="stylesheet"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js">
+  </script>
+  <link href="styles.css" rel="stylesheet"/>
+ </head>
+ <body>
   <header>
-    <div class="header-overlay">
-		<h1>Omar Pelcastre Cabrera</h1>
-		<p>Business Intelligence | Data Analysis | Financial Analysis | Python</p>
-    </div>
+   <div class="header-text">
+    <h1>
+     Omar Pelcastre Cabrera
+    </h1>
+    <p>
+     Business Intelligence | Data Analysis | Financial Analysis | Python
+    </p>
+   </div>
   </header>
-
-  <button class="menu-toggle" onclick="toggleMenu()">Menu</button>
+  <button class="menu-toggle" onclick="toggleMenu()">
+   Menu
+  </button>
   <nav>
-    <a href="#home">HOME</a>
-    <a href="#blog">SKILLS & CERTS</a>
-    <a href="#portfolio">PORTFOLIO</a>
-    <a href="#about">ABOUT ME</a>
-    <a href="#contact">CONTACT</a>
+   <a href="#home">
+    HOME
+   </a>
+   <a href="#blog">
+    SKILLS &amp; CERTS
+   </a>
+   <a href="#portfolio">
+    PORTFOLIO
+   </a>
+   <a href="#about">
+    ABOUT ME
+   </a>
+   <a href="#contact">
+    CONTACT
+   </a>
   </nav>
-
   <div class="container" id="home">
-    <h2>Welcome</h2>
-    <p>I am a Business Intelligence and Financial Analysis professional with a strong academic foundation in Finance and Computer Information Systems, holding a B.S. in Business Administration from Cal Poly Pomona. My academic journey was marked by honors recognition and leadership roles, including serving as president of the university's student-managed investment fund, where I led a team to first place in a CFAOC-sponsored competition. This role sharpened my skills in equity research, portfolio management, and data-driven financial strategy.</p>
-    <p>My technical toolkit includes advanced Python programming for data analysis and automation, Excel modeling, and experience with tools like Tableau, Power BI, and SQL. I've applied these skills across various projects&mdash;from financial forecasting models and expense dashboards to investment performance summaries. My portfolio showcases these capabilities through real-world applications that emphasize analytical insight, clear communication, and practical impact.</p>
-    <p>Before transitioning into finance and BI, I operated a portrait photography business and worked with Sunset School Portraits. This chapter of my career taught me adaptability, customer engagement, and entrepreneurial discipline. These experiences, combined with my analytical training, shape a well-rounded professional perspective&mdash;one rooted in creativity, precision, and a commitment to delivering insights that drive decisions.</p>
+   <h2>
+    Welcome
+   </h2>
+   <p>
+    I am a Business Intelligence and Financial Analysis professional with a strong academic foundation in Finance and Computer Information Systems, holding a B.S. in Business Administration from Cal Poly Pomona. My academic journey was marked by honors recognition and leadership roles, including serving as president of the university's student-managed investment fund, where I led a team to first place in a CFAOC-sponsored competition. This role sharpened my skills in equity research, portfolio management, and data-driven financial strategy.
+   </p>
+   <p>
+    My technical toolkit includes advanced Python programming for data analysis and automation, Excel modeling, and experience with tools like Tableau, Power BI, and SQL. I've applied these skills across various projects—from financial forecasting models and expense dashboards to investment performance summaries. My portfolio showcases these capabilities through real-world applications that emphasize analytical insight, clear communication, and practical impact.
+   </p>
+   <p>
+    Before transitioning into finance and BI, I operated a portrait photography business and worked with Sunset School Portraits. This chapter of my career taught me adaptability, customer engagement, and entrepreneurial discipline. These experiences, combined with my analytical training, shape a well-rounded professional perspective—one rooted in creativity, precision, and a commitment to delivering insights that drive decisions.
+   </p>
   </div>
-
   <div class="container" id="skills">
-    <h2>Skills & Certifications</h2>
-    <div class="skills-grid">
-      <div class="skill-item">
-        <a href="UC-7Z3LIBPL.jpg" target="_blank">
-          <img src="UC-7Z3LIBPL.jpg" alt="Python for Financial Analysis Certificate">
-        </a>
-      </div>
-      <div class="skill-item">
-        <a href="1601635052643.jpg" target="_blank">
-          <img src="1601635052643.jpg" alt="Cal Poly Pomona Diploma">
-        </a>
-      </div>
-      <!-- Add more items here as needed -->
+   <h2>
+    Skills &amp; Certifications
+   </h2>
+   <div class="skills-grid">
+    <div class="skill-item">
+     <a href="UC-7Z3LIBPL.jpg" target="_blank">
+      <img alt="Python for Financial Analysis Certificate" src="UC-7Z3LIBPL.jpg"/>
+     </a>
     </div>
+    <div class="skill-item">
+     <a href="1601635052643.jpg" target="_blank">
+      <img alt="Cal Poly Pomona Diploma" src="1601635052643.jpg"/>
+     </a>
+    </div>
+    <!-- Add more items here as needed -->
+   </div>
   </div>
-
   <div class="container" id="portfolio">
-    <h2>Portfolio</h2>
-    <h3 class="subheader">Seminar in Portfolio Management - Capstone Project</h3>
-    <div class="pdf-section">
-      <div class="pdf-viewer">
-        <canvas id="pdf-render"></canvas>
-        <div id="pdf-controls">
-          <button onclick="prevPage()">Previous</button>
-          <span>Page: <span id="page-num"></span> / <span id="page-count"></span></span>
-          <button onclick="nextPage()">Next</button>
-        </div>
-      </div>
-      <div class="pdf-description">
-        <p><strong>CO CAPITAL - Mock Fund Annual Report</strong></p>
-        <p>This project was created as part of FRL 4331 - Seminar in Portfolio Management at Cal Poly Pomona. The course focused on developing and evaluating alternative portfolio selection models for both individual and institutional use, emphasizing traditional and non-traditional investments. It served as the capstone experience for my finance concentration, combining theory and hands-on application in asset management and investment strategy.</p>
-        <p>This annual report showcases a comprehensive review of the investment fund's performance, strategic allocation, and financial health. It includes analysis across asset classes, geographic exposure, and sector positioning.</p>
-        <p>As part of the team, I contributed to the preparation and review of portfolio summaries, built visualizations in Python, and cross-validated performance metrics with Excel-based models. This document demonstrates both technical accuracy and clear communication in financial reporting.</p>
-        
-        <a class="download-btn" href="CO CAPITAL - MGIF Annual Report.pdf" download>Download PDF</a>
-      </div>
+   <h2>
+    Portfolio
+   </h2>
+   <h3 class="subheader">
+    Seminar in Portfolio Management - Capstone Project
+   </h3>
+   <div class="pdf-section">
+    <div class="pdf-viewer">
+     <canvas id="pdf-render">
+     </canvas>
+     <div id="pdf-controls">
+      <button onclick="prevPage()">
+       Previous
+      </button>
+      <span>
+       Page:
+       <span id="page-num">
+       </span>
+       /
+       <span id="page-count">
+       </span>
+      </span>
+      <button onclick="nextPage()">
+       Next
+      </button>
+     </div>
     </div>
-
-    <h3 class="subheader">CFAOC - REQUEST FOR PROPOSAL - SMIF Fall 2019 Presentation</h3>
-    <div class="pdf-section">
-      <div class="pdf-viewer">
-        <canvas id="pdf-render-smif"></canvas>
-        <div id="pdf-controls-smif">
-          <button onclick="prevPageSmif()">Previous</button>
-          <span>Page: <span id="page-num-smif"></span> / <span id="page-count-smif"></span></span>
-          <button onclick="nextPageSmif()">Next</button>
-        </div>
-      </div>
-      <div class="pdf-description">
-        <p><strong>Student Managed Investment Fund - Fall 2019 Presentation</strong></p>
-        <p>This project was a collaborative effort and our entire team contributed insights across each section. As the lead on fixed‐income allocation for our student‐managed fund, I began by gathering and cleaning yield and performance data across key bond subclasses—U.S. Treasuries, investment‐grade corporate bonds, and high‐yield issues. I analyzed metrics such as yield-to-maturity, duration, and credit spreads to understand each segment’s risk/return trade-off. In our portfolio modeling, I deliberately sized our duration exposure to benefit from potential rate declines, while preserving enough liquidity to rebalance quickly if conditions shifted. This process involved scripting in Python to pull FRED data, building dynamic Excel models for scenario analysis, and validating outputs against historical yield curve movements.</p>
-        <p>Given the scope and timeline constraints of a student fund, we opted for broad-market ETFs rather than selecting individual bonds. Using ETFs allowed us to achieve our target exposures—40% Treasury, 45% corporate, and 15% high yield—without the operational complexity and lot-size restrictions of direct bond trading. This ETF-based strategy provided subclass-level diversification, intraday liquidity, and streamlined execution, ensuring our recommendations were both academically rigorous and practical within the fund’s framework.</p>
-        <a class="download-btn" href="SMIF PRESENTATION FALL 2019.pdf" download>Download SMIF Presentation</a>
-      </div>
+    <div class="pdf-description">
+     <p>
+      <strong>
+       CO CAPITAL - Mock Fund Annual Report
+      </strong>
+     </p>
+     <p>
+      This project was created as part of FRL 4331 - Seminar in Portfolio Management at Cal Poly Pomona. The course focused on developing and evaluating alternative portfolio selection models for both individual and institutional use, emphasizing traditional and non-traditional investments. It served as the capstone experience for my finance concentration, combining theory and hands-on application in asset management and investment strategy.
+     </p>
+     <p>
+      This annual report showcases a comprehensive review of the investment fund's performance, strategic allocation, and financial health. It includes analysis across asset classes, geographic exposure, and sector positioning.
+     </p>
+     <p>
+      As part of the team, I contributed to the preparation and review of portfolio summaries, built visualizations in Python, and cross-validated performance metrics with Excel-based models. This document demonstrates both technical accuracy and clear communication in financial reporting.
+     </p>
+     <a class="download-btn" download="" href="CO CAPITAL - MGIF Annual Report.pdf">
+      Download PDF
+     </a>
     </div>
-    
+   </div>
+   <h3 class="subheader">
+    CFAOC - REQUEST FOR PROPOSAL - SMIF Fall 2019 Presentation
+   </h3>
+   <div class="pdf-section">
+    <div class="pdf-viewer">
+     <canvas id="pdf-render-smif">
+     </canvas>
+     <div id="pdf-controls-smif">
+      <button onclick="prevPageSmif()">
+       Previous
+      </button>
+      <span>
+       Page:
+       <span id="page-num-smif">
+       </span>
+       /
+       <span id="page-count-smif">
+       </span>
+      </span>
+      <button onclick="nextPageSmif()">
+       Next
+      </button>
+     </div>
+    </div>
+    <div class="pdf-description">
+     <p>
+      <strong>
+       Student Managed Investment Fund - Fall 2019 Presentation
+      </strong>
+     </p>
+     <p>
+      This project was a collaborative effort and our entire team contributed insights across each section. As the lead on fixed‐income allocation for our student‐managed fund, I began by gathering and cleaning yield and performance data across key bond subclasses—U.S. Treasuries, investment‐grade corporate bonds, and high‐yield issues. I analyzed metrics such as yield-to-maturity, duration, and credit spreads to understand each segment’s risk/return trade-off. In our portfolio modeling, I deliberately sized our duration exposure to benefit from potential rate declines, while preserving enough liquidity to rebalance quickly if conditions shifted. This process involved scripting in Python to pull FRED data, building dynamic Excel models for scenario analysis, and validating outputs against historical yield curve movements.
+     </p>
+     <p>
+      Given the scope and timeline constraints of a student fund, we opted for broad-market ETFs rather than selecting individual bonds. Using ETFs allowed us to achieve our target exposures—40% Treasury, 45% corporate, and 15% high yield—without the operational complexity and lot-size restrictions of direct bond trading. This ETF-based strategy provided subclass-level diversification, intraday liquidity, and streamlined execution, ensuring our recommendations were both academically rigorous and practical within the fund’s framework.
+     </p>
+     <a class="download-btn" download="" href="SMIF PRESENTATION FALL 2019.pdf">
+      Download SMIF Presentation
+     </a>
+    </div>
+   </div>
   </div>
-
-  
-      
-
-
   <div class="container" id="about">
-    <h2>About Me</h2>
-    <p>I'm Omar Pelcastre Cabrera, a finance and business intelligence professional with a B.S. in Business Administration from Cal Poly Pomona, concentrating in Finance and Computer Information Systems. During my time at the university, I served as president of the student-managed investment fund, where I was part of the team led a group of talented individuals to a first-place finish in a CFAOC-sponsored portfolio competition. These experiences gave me hands-on exposure to equity research, financial strategy, and data analytics&mdash;foundations I continue to build on today.</p>
-    <p>Before I was authorized to work legally in the U.S., I spent nearly a decade adapting to the constraints of undocumented status. I pursued photography out of both necessity and creativity&mdash;eventually running my own business and contracting with studios to support myself and my family. During the pandemic, I transitioned to gig work, where I developed custom tools to track and forecast my income. These moments shaped my mindset: resourceful, flexible, and grounded in real-world problem-solving. I later joined Sunset School Portraits, a role that allowed me to work while caring for my young son.</p>
-    <p>My technical strengths lie in financial research, equity analysis, and data-driven modeling using Python and Excel. I continue to sharpen these skills through personal projects and ongoing education. My goal is to apply this technical foundation&mdash;and the resilience of my journey&mdash;to a team that values strategic thinking, adaptability, and meaningful impact. What drives me most is the ability to keep learning while supporting my family. I'm most fulfilled when we're together outdoors, discovering something new. I strive to be a great example for my son and a loving husband to my wife, and I define success as doing meaningful work with purpose while providing for those I love.</p>
+   <h2>
+    About Me
+   </h2>
+   <p>
+    I'm Omar Pelcastre Cabrera, a finance and business intelligence professional with a B.S. in Business Administration from Cal Poly Pomona, concentrating in Finance and Computer Information Systems. During my time at the university, I served as president of the student-managed investment fund, where I was part of the team led a group of talented individuals to a first-place finish in a CFAOC-sponsored portfolio competition. These experiences gave me hands-on exposure to equity research, financial strategy, and data analytics—foundations I continue to build on today.
+   </p>
+   <p>
+    Before I was authorized to work legally in the U.S., I spent nearly a decade adapting to the constraints of undocumented status. I pursued photography out of both necessity and creativity—eventually running my own business and contracting with studios to support myself and my family. During the pandemic, I transitioned to gig work, where I developed custom tools to track and forecast my income. These moments shaped my mindset: resourceful, flexible, and grounded in real-world problem-solving. I later joined Sunset School Portraits, a role that allowed me to work while caring for my young son.
+   </p>
+   <p>
+    My technical strengths lie in financial research, equity analysis, and data-driven modeling using Python and Excel. I continue to sharpen these skills through personal projects and ongoing education. My goal is to apply this technical foundation—and the resilience of my journey—to a team that values strategic thinking, adaptability, and meaningful impact. What drives me most is the ability to keep learning while supporting my family. I'm most fulfilled when we're together outdoors, discovering something new. I strive to be a great example for my son and a loving husband to my wife, and I define success as doing meaningful work with purpose while providing for those I love.
+   </p>
   </div>
-
-
   <div class="container" id="contact">
-  <h2>Contact</h2>
-  <div class="contact-grid">
-    <a href="mailto:opelcastre@outlook.com" class="contact-button" target="_blank" title="Send me an email">
-      <img src="https://img.icons8.com/ios-filled/50/000000/email.png" alt="Email Icon">
-      <span>Email</span>
+   <h2>
+    Contact
+   </h2>
+   <div class="contact-grid">
+    <a class="contact-button" href="mailto:opelcastre@outlook.com" target="_blank" title="Send me an email">
+     <img alt="Email Icon" src="https://img.icons8.com/ios-filled/50/000000/email.png"/>
+     <span>
+      Email
+     </span>
     </a>
-    <a href="https://www.linkedin.com/in/opelcastre/" class="contact-button" target="_blank" title="Connect with me on LinkedIn">
-      <img src="https://img.icons8.com/ios-filled/50/000000/linkedin.png" alt="LinkedIn Icon">
-      <span>LinkedIn</span>
+    <a class="contact-button" href="https://www.linkedin.com/in/opelcastre/" target="_blank" title="Connect with me on LinkedIn">
+     <img alt="LinkedIn Icon" src="https://img.icons8.com/ios-filled/50/000000/linkedin.png"/>
+     <span>
+      LinkedIn
+     </span>
     </a>
-    <a href="https://github.io/o-pelcastre" class="contact-button" target="_blank" title="View my GitHub projects">
-      <img src="https://img.icons8.com/ios-filled/50/000000/github.png" alt="GitHub Icon">
-      <span>GitHub</span>
+    <a class="contact-button" href="https://github.io/o-pelcastre" target="_blank" title="View my GitHub projects">
+     <img alt="GitHub Icon" src="https://img.icons8.com/ios-filled/50/000000/github.png"/>
+     <span>
+      GitHub
+     </span>
     </a>
+   </div>
   </div>
-</div>
-
-<style>
-  .contact-grid {
+  <style>
+   .contact-grid {
     display: flex;
     justify-content: center;
     gap: 1.5rem;
@@ -436,14 +269,14 @@
     color: var(--primary-color);
     font-weight: 600;
   }
-</style>
-
+  </style>
   <footer>
-    <p>&copy; 2025 Omar Pelcastre Cabrera</p>
+   <p>
+    © 2025 Omar Pelcastre Cabrera
+   </p>
   </footer>
-
   <script>
-    const url = 'CO CAPITAL - MGIF Annual Report.pdf';
+   const url = 'CO CAPITAL - MGIF Annual Report.pdf';
     let pdfDoc = null,
         pageNum = 1,
         pageIsRendering = false,
@@ -499,9 +332,8 @@
       renderPage(pageNum);
     });
   </script>
-
-<script>
-  // SMIF PDF viewer
+  <script>
+   // SMIF PDF viewer
   const urlSmif = 'SMIF PRESENTATION FALL 2019.pdf';
   let pdfDocSmif = null, pageNumSmif = 28, pageIsRenderingSmif = false, pageNumPendingSmif = null;
   const scaleSmif = 1.5, canvasSmif = document.getElementById('pdf-render-smif'), ctxSmif = canvasSmif.getContext('2d');
@@ -548,12 +380,12 @@
     document.getElementById('page-count-smif').textContent = pdfDocSmif.numPages;
     renderPageSmif(pageNumSmif);
   });
-</script>
-
-<script>  function toggleMenu() {
+  </script>
+  <script>
+   function toggleMenu() {
     const nav = document.querySelector('nav');
     nav.classList.toggle('show');
   }
-</script>
-</body>
+  </script>
+ </body>
 </html>
