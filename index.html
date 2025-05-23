@@ -285,6 +285,13 @@
 	  border-radius: 8px;
 	  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 	}
+	
+	#pdf-viewer-container:fullscreen {
+		  background-color: #fff;
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
+		}
 </style>
 </head>
 <body>
@@ -351,7 +358,8 @@
         <div id="pdf-controls">
           <button onclick="prevPage()">Previous</button>
           <span>Page: <span id="page-num"></span> / <span id="page-count"></span></span>
-          <button onclick="nextPage()">Next</button>
+          <button onclick="nextPage()">Next</button><br>
+		  <button onclick="openFullscreen()">Full Screen</button>
         </div>
       </div>
       <div class="pdf-description">
@@ -415,6 +423,7 @@
 </div>
 
 <style>
+
   .contact-grid {
     display: flex;
     justify-content: center;
@@ -592,6 +601,18 @@
     document.getElementById('page-count-smif').textContent = pdfDocSmif.numPages;
     renderPageSmif(pageNumSmif);
   });
+  
+  
+  function openFullscreen() {
+  const container = document.getElementById("pdf-viewer");
+  if (container.requestFullscreen) {
+    container.requestFullscreen();
+  } else if (container.webkitRequestFullscreen) { /* Safari */
+    container.webkitRequestFullscreen();
+  } else if (container.msRequestFullscreen) { /* IE11 */
+    container.msRequestFullscreen();
+  }
+	}
 </script>
 
 <script>  function toggleMenu() {
