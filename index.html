@@ -285,13 +285,7 @@
 	  border-radius: 8px;
 	  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 	}
-	
-	#pdf-viewer-container:fullscreen {
-		  background-color: #fff;
-		  display: flex;
-		  align-items: center;
-		  justify-content: center;
-		}
+
 </style>
 </head>
 <body>
@@ -359,7 +353,6 @@
           <button onclick="prevPage()">Previous</button>
           <span>Page: <span id="page-num"></span> / <span id="page-count"></span></span>
           <button onclick="nextPage()">Next</button><br>
-		  <button onclick="openFullscreen()">Full Screen</button>
         </div>
       </div>
       <div class="pdf-description">
@@ -603,22 +596,15 @@
   });
   
   
-  function openFullscreen() {
-  const container = document.getElementById("pdf-viewer");
-  if (container.requestFullscreen) {
-    container.requestFullscreen();
-  } else if (container.webkitRequestFullscreen) { /* Safari */
-    container.webkitRequestFullscreen();
-  } else if (container.msRequestFullscreen) { /* IE11 */
-    container.msRequestFullscreen();
-  }
-	}
+
 </script>
 
 <script>  function toggleMenu() {
     const nav = document.querySelector('nav');
     nav.classList.toggle('show');
   }
+  
+
 </script>
 </body>
 </html>
