@@ -18,7 +18,7 @@
 	header {
 	  background: url('/images/pngtree-d-render-of-seo-optimization-stock-trading-data-analytics-web-analytics-picture-image_3929617.png') center/cover no-repeat;
 	  position: sticky;
-	  padding: 2.5rem 1.5rem;
+	  padding: 1.5rem 0.5rem;
 	  text-align: center;
 	  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     top: 0;
@@ -29,14 +29,13 @@
 	.header-overlay {
 	  background-color: rgba(255, 255, 255, 0.85);
 	  display: inline-block;
-	  padding: 2rem;
+	  padding: 1rem;
 	  border-radius: 10px;
 	  color: #2c3e50; /* darker text for contrast on light background */
 	}
     
 
     nav {
-      background-color: var(--accent-color);
       display: flex;
       justify-content: center;
       gap: 2rem;
@@ -46,7 +45,7 @@
     }
 
     nav a {
-      color: white;
+      color: var(--primary-color);
       text-decoration: none;
       font-weight: 600;
     }
