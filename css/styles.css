@@ -17,10 +17,13 @@
 
 	header {
 	  background: url('/images/pngtree-d-render-of-seo-optimization-stock-trading-data-analytics-web-analytics-picture-image_3929617.png') center/cover no-repeat;
-	  position: relative;
+	  position: sticky;
 	  padding: 2.5rem 1.5rem;
 	  text-align: center;
 	  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    top: 0;
+    z-index: 1000;
+
 	}
 
 	.header-overlay {
@@ -38,6 +41,9 @@
       justify-content: center;
       gap: 2rem;
       padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
     nav a {
