@@ -13,7 +13,6 @@
       color: var(--text-color);
       line-height: 1.7;
       font-size: 1.05rem;
-      padding-top: 70px;
     }
 
 	header {
@@ -44,7 +43,7 @@
       width: 100vw;;
       gap: 2rem;
       padding: 1rem 0;
-      background-color: var(--accent-color);
+      background-color: var(--secondary-color);
       z-index: 1100;
     }
 
@@ -85,8 +84,9 @@
     footer {
       text-align: center;
       padding: 2rem 1rem;
-      background-color: var(--primary-color);
-      color: white;
+      background-color: var(--accent-color);
+      color: var(--primary-color);
+      
     }
 
     #pdf-controls {
