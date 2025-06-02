@@ -343,6 +343,117 @@
   .timeline-details { font-size: 0.98rem; }
 }
 
+
+/* ...existing code... */
+#timeline-horizontal {
+  display: flex;
+  overflow-x: auto;
+  padding: 2rem 0 1rem 0;
+  gap: 2.5rem;
+  position: relative;
+  margin-bottom: 2rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-color) #eee;
+}
+.timeline-h-event {
+  position: relative;
+  flex: 0 0 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.25s;
+}
+.timeline-h-event:hover {
+  transform: translateY(-10px) scale(1.04);
+  z-index: 2;
+}
+.timeline-h-dot {
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  box-shadow: 0 0 0 4px var(--accent-color);
+  margin-bottom: 0.5rem;
+  transition: box-shadow 0.3s;
+  position: relative;
+  z-index: 1;
+}
+.timeline-h-dot.work { background: #2980b9; box-shadow: 0 0 0 4px #2980b9; }
+.timeline-h-dot.school { background: #27ae60; box-shadow: 0 0 0 4px #27ae60; }
+.timeline-h-dot.learning { background: #f39c12; box-shadow: 0 0 0 4px #f39c12; }
+.timeline-h-dot.other { background: #8e44ad; box-shadow: 0 0 0 4px #8e44ad; }
+.timeline-h-title {
+  font-weight: bold;
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 0.2rem;
+  font-size: 1.05rem;
+}
+.timeline-h-date {
+  font-size: 0.95rem;
+  color: #888;
+  margin-bottom: 0.2rem;
+  text-align: center;
+}
+.timeline-h-tooltip {
+  display: none;
+  position: absolute;
+  left: 50%;
+  bottom: 120%;
+  transform: translateX(-50%);
+  background: #fff;
+  color: #222;
+  border-radius: 8px;
+  box-shadow: 0 6px 24px rgba(44,62,80,0.13);
+  padding: 1rem 1.2rem;
+  min-width: 200px;
+  max-width: 320px;
+  font-size: 1rem;
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s, transform 0.25s;
+}
+.timeline-h-event:hover .timeline-h-tooltip,
+.timeline-h-event:focus-within .timeline-h-tooltip {
+  display: block;
+  opacity: 1;
+  transform: translateX(-50%) translateY(-10px) scale(1.03);
+}
+.timeline-h-line {
+  position: absolute;
+  top: 1.1rem;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #2980b9 0%, #27ae60 50%, #f39c12 100%);
+  z-index: 0;
+}
+@media (max-width: 700px) {
+  #timeline-horizontal {
+    gap: 1.2rem;
+    padding: 1rem 0 0.5rem 0;
+  }
+  .timeline-h-event {
+    flex: 0 0 150px;
+  }
+  .timeline-h-tooltip {
+    font-size: 0.98rem;
+    min-width: 140px;
+    max-width: 220px;
+    padding: 0.7rem 0.8rem;
+  }
+}
+@media (max-width: 500px) {
+  #timeline-horizontal {
+    gap: 0.7rem;
+  }
+  .timeline-h-event {
+    flex: 0 0 110px;
+  }
+  .timeline-h-title { font-size: 0.95rem; }
+}
+
 </style>
 </head>
 <body>
@@ -449,6 +560,8 @@
   <div class="container" id="about">
     <h2>About Me</h2>
     <div id="timeline"></div>
+
+    <div id="timeline-horizontal"></div>
     <p>I'm Omar Pelcastre Cabrera, a finance and business intelligence professional with a B.S. in Business Administration from Cal Poly Pomona, concentrating in Finance and Computer Information Systems. During my time at the university, I served as president of the student-managed investment fund, where I was part of the team led a group of talented individuals to a first-place finish in a CFAOC-sponsored portfolio competition. These experiences gave me hands-on exposure to equity research, financial strategy, and data analytics&mdash;foundations I continue to build on today.</p>
     <p>Before I was authorized to work legally in the U.S., I spent nearly a decade adapting to the constraints of undocumented status. I pursued photography out of both necessity and creativity&mdash;eventually running my own business and contracting with studios to support myself and my family. During the pandemic, I transitioned to gig work, where I developed custom tools to track and forecast my income. These moments shaped my mindset: resourceful, flexible, and grounded in real-world problem-solving. I later joined Sunset School Portraits, a role that allowed me to work while caring for my young son.</p>
     <p>My technical strengths lie in financial research, equity analysis, and data-driven modeling using Python and Excel. I continue to sharpen these skills through personal projects and ongoing education. My goal is to apply this technical foundation&mdash;and the resilience of my journey&mdash;to a team that values strategic thinking, adaptability, and meaningful impact. What drives me most is the ability to keep learning while supporting my family. I'm most fulfilled when we're together outdoors, discovering something new. I strive to be a great example for my son and a loving husband to my wife, and I define success as doing meaningful work with purpose while providing for those I love.</p>
@@ -669,27 +782,27 @@
 // Timeline data
 const timelineData = [
   {
-    title: "Graduated Cal Poly Pomona (B.S. Business Administration)",
+    title: "  Graduated Cal Poly Pomona (B.S. Business Administration)",
     date: "June 2021",
     details: "Concentration in Finance & Computer Information Systems. Honors graduate. President, Student Managed Investment Fund. Led team to 1st place in CFAOC competition."
   },
   {
-    title: "President, Student Managed Investment Fund",
+    title: "  President, Student Managed Investment Fund",
     date: "2019–2020",
     details: "Led a team in equity research, portfolio management, and financial strategy. Developed Python tools for analysis and Excel models for reporting."
   },
   {
-    title: "Portrait Photographer & Business Owner",
+    title: "  Portrait Photographer & Business Owner",
     date: "2012–2020",
     details: "Operated a portrait photography business and contracted with Sunset School Portraits. Developed customer engagement and entrepreneurial skills."
   },
   {
-    title: "Transition to Finance & BI",
+    title: "  Transition to Finance & BI",
     date: "2020–2022",
     details: "Pivoted to finance and business intelligence. Built financial forecasting models, dashboards, and investment summaries using Python, Excel, Tableau, and Power BI."
   },
   {
-    title: "Current: Ongoing Learning",
+    title: "  Current: Ongoing Learning",
     date: "2023–Present",
     details: "Sharpening skills in Python, SQL, Power BI, and financial modeling. Working on personal projects and continuous education while working as School Photographer."
   }
@@ -712,6 +825,57 @@ function toggleTimelineEvent(el) {
   el.classList.toggle('active');
 }
 renderTimeline();
+
+
+// ...existing code...
+const timelineHorizontalData = [
+  {
+    title: "Graduated Cal Poly Pomona (B.S. Business Administration)",
+    date: "June 2021",
+    details: "Concentration in Finance & Computer Information Systems. Honors graduate. President, Student Managed Investment Fund. Led team to 1st place in CFAOC competition.",
+    category: "school"
+  },
+  {
+    title: "President, Student Managed Investment Fund",
+    date: "2019–2020",
+    details: "Led a team in equity research, portfolio management, and financial strategy. Developed Python tools for analysis and Excel models for reporting.",
+    category: "school"
+  },
+  {
+    title: "Portrait Photographer & Business Owner",
+    date: "2012–2020",
+    details: "Operated a portrait photography business and contracted with Sunset School Portraits. Developed customer engagement and entrepreneurial skills.",
+    category: "work"
+  },
+  {
+    title: "Transition to Finance & BI",
+    date: "2020–2022",
+    details: "Pivoted to finance and business intelligence. Built financial forecasting models, dashboards, and investment summaries using Python, Excel, Tableau, and Power BI.",
+    category: "work"
+  },
+  {
+    title: "Current: Ongoing Learning",
+    date: "2023–Present",
+    details: "Sharpening skills in Python, SQL, Power BI, and financial modeling. Working on personal projects and continuous education while working as School Photographer.",
+    category: "learning"
+  }
+];
+
+function renderHorizontalTimeline() {
+  const timeline = document.getElementById('timeline-horizontal');
+  timeline.innerHTML = `
+    <div class="timeline-h-line"></div>
+    ${timelineHorizontalData.map(event => `
+      <div class="timeline-h-event" tabindex="0">
+        <div class="timeline-h-dot ${event.category}"></div>
+        <div class="timeline-h-title">${event.title}</div>
+        <div class="timeline-h-date">${event.date}</div>
+        <div class="timeline-h-tooltip">${event.details}</div>
+      </div>
+    `).join('')}
+  `;
+}
+renderHorizontalTimeline();
 </script>
 </body>
 </html>
