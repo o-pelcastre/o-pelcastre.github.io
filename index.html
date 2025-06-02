@@ -286,6 +286,63 @@
 	  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 	}
 
+  .timeline {
+  position: relative;
+  margin: 2rem 0 2rem 1rem;
+  padding-left: 2rem;
+  border-left: 3px solid var(--accent-color);
+  max-width: 700px;
+}
+.timeline-event {
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  position: relative;
+}
+.timeline-event:last-child {
+  margin-bottom: 0;
+}
+.timeline-dot {
+  position: absolute;
+  left: -1.2rem;
+  top: 0.3rem;
+  width: 1rem;
+  height: 1rem;
+  background: var(--accent-color);
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 2px var(--accent-color);
+}
+.timeline-title {
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 0.2rem;
+}
+.timeline-date {
+  font-size: 0.95rem;
+  color: #888;
+  margin-bottom: 0.2rem;
+}
+.timeline-details {
+  display: none;
+  margin-top: 0.3rem;
+  color: #333;
+  background: #f8fafd;
+  border-radius: 6px;
+  padding: 0.7rem 1rem;
+  border-left: 3px solid var(--accent-color);
+  transition: all 0.2s;
+}
+.timeline-event.active .timeline-details {
+  display: block;
+}
+.timeline-event:hover .timeline-title {
+  text-decoration: underline;
+}
+@media (max-width: 600px) {
+  .timeline { padding-left: 1rem; }
+  .timeline-details { font-size: 0.98rem; }
+}
+
 </style>
 </head>
 <body>
@@ -300,7 +357,7 @@
   <button class="menu-toggle" onclick="toggleMenu()">Menu</button>
   <nav>
     <a href="#welcome">HELLO</a>
-    <a href="#blog">SKILLS & CERTIFICATIONS</a>
+    <a href="#skills">SKILLS & CERTIFICATIONS</a>
     <a href="#portfolio">PORTFOLIO</a>
     <a href="#about">ABOUT ME</a>
     <a href="#links">LINKS</a>
@@ -391,6 +448,7 @@
 
   <div class="container" id="about">
     <h2>About Me</h2>
+    <div id="timeline"></div>
     <p>I'm Omar Pelcastre Cabrera, a finance and business intelligence professional with a B.S. in Business Administration from Cal Poly Pomona, concentrating in Finance and Computer Information Systems. During my time at the university, I served as president of the student-managed investment fund, where I was part of the team led a group of talented individuals to a first-place finish in a CFAOC-sponsored portfolio competition. These experiences gave me hands-on exposure to equity research, financial strategy, and data analytics&mdash;foundations I continue to build on today.</p>
     <p>Before I was authorized to work legally in the U.S., I spent nearly a decade adapting to the constraints of undocumented status. I pursued photography out of both necessity and creativity&mdash;eventually running my own business and contracting with studios to support myself and my family. During the pandemic, I transitioned to gig work, where I developed custom tools to track and forecast my income. These moments shaped my mindset: resourceful, flexible, and grounded in real-world problem-solving. I later joined Sunset School Portraits, a role that allowed me to work while caring for my young son.</p>
     <p>My technical strengths lie in financial research, equity analysis, and data-driven modeling using Python and Excel. I continue to sharpen these skills through personal projects and ongoing education. My goal is to apply this technical foundation&mdash;and the resilience of my journey&mdash;to a team that values strategic thinking, adaptability, and meaningful impact. What drives me most is the ability to keep learning while supporting my family. I'm most fulfilled when we're together outdoors, discovering something new. I strive to be a great example for my son and a loving husband to my wife, and I define success as doing meaningful work with purpose while providing for those I love.</p>
@@ -605,6 +663,55 @@
   }
   
 
+</script>
+
+<script>
+// Timeline data
+const timelineData = [
+  {
+    title: "Graduated Cal Poly Pomona (B.S. Business Administration)",
+    date: "June 2021",
+    details: "Concentration in Finance & Computer Information Systems. Honors graduate. President, Student Managed Investment Fund. Led team to 1st place in CFAOC competition."
+  },
+  {
+    title: "President, Student Managed Investment Fund",
+    date: "2019–2020",
+    details: "Led a team in equity research, portfolio management, and financial strategy. Developed Python tools for analysis and Excel models for reporting."
+  },
+  {
+    title: "Portrait Photographer & Business Owner",
+    date: "2012–2020",
+    details: "Operated a portrait photography business and contracted with Sunset School Portraits. Developed customer engagement and entrepreneurial skills."
+  },
+  {
+    title: "Transition to Finance & BI",
+    date: "2020–2022",
+    details: "Pivoted to finance and business intelligence. Built financial forecasting models, dashboards, and investment summaries using Python, Excel, Tableau, and Power BI."
+  },
+  {
+    title: "Current: Ongoing Learning",
+    date: "2023–Present",
+    details: "Sharpening skills in Python, SQL, Power BI, and financial modeling. Working on personal projects and continuous education while working as School Photographer."
+  }
+];
+
+// Render timeline
+function renderTimeline() {
+  const timeline = document.getElementById('timeline');
+  timeline.className = 'timeline';
+  timeline.innerHTML = timelineData.map((event, i) => `
+    <div class="timeline-event" onclick="toggleTimelineEvent(this)">
+      <div class="timeline-dot"></div>
+      <div class="timeline-title">${event.title}</div>
+      <div class="timeline-date">${event.date}</div>
+      <div class="timeline-details">${event.details}</div>
+    </div>
+  `).join('');
+}
+function toggleTimelineEvent(el) {
+  el.classList.toggle('active');
+}
+renderTimeline();
 </script>
 </body>
 </html>
