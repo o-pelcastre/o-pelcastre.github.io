@@ -1,27 +1,25 @@
 :root {
-      --primary-color: #2c3e50;
-      --secondary-color: #ecf0f1;
-      --text-color: #2c3e50;
-      --accent-color: #2980b9;
-      --heading-color: #1a5276;
-    }
+  --primary-color: #111;         /* Main backgrounds */
+  --secondary-color: #fff;       /* Card/section backgrounds */
+  --text-color: #fff;            /* Main text color */
+  --accent-color: #ffd600;       /* High-contrast accent (yellow) */
+  --heading-color: #fff;         /* Headings */
+}
 
     body {
       margin: 0;
       font-family: 'Source Sans Pro', sans-serif;
-      background-color: var(--secondary-color);
+      background-color: var(--primary-color);
       color: var(--text-color);
       line-height: 1.7;
       font-size: 1.05rem;
     }
 
-	header {
-	  background: url('/images/pngtree-d-render-of-seo-optimization-stock-trading-data-analytics-web-analytics-picture-image_3929617.png') center/cover no-repeat;
-	  position: relative;
-	  padding: 2.5rem 1.5rem;
-	  text-align: center;
-	  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-	}
+    header,
+    footer {
+      background-color: var(--primary-color);
+      color: var(--text-color);
+    }
 
 	.header-overlay {
 	  background-color: rgba(255, 255, 255, 0.85);
@@ -54,17 +52,29 @@
       max-width: 65%;
       margin: 2rem auto;
       padding: 0 1rem;
+      background: var(--secondary-color);
+      color: var(--primary-color);
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
+
+    h1, h2, .subheader {
+        color: var(--heading-color);
+        border-bottom: 3px solid var(--accent-color);
+      }
 
     h1 {
       font-size: 5rem;
-	  text-transform: uppercase;
+	    text-transform: uppercase;
       margin: 0;
       line-height: 1.3;
     }
 
     h2 {
-      color: #4d5656;
+      color: var(--heading-color);
       font-size: 1.8rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -113,21 +123,23 @@
       justify-content: center;
     }
 
-    .download-btn {
+    a, .download-btn {
       display: block;
       margin: 1rem auto 0 auto;
       padding: 0.5rem 1rem;
       background-color: var(--accent-color);
-      color: white;
+      color: var(--primary-color);
       text-decoration: none;
       font-weight: 600;
       border-radius: 5px;
       text-align: center;
       width: 50%;
+      border: none;
     }
 
-    .download-btn:hover {
-      background-color: #2471a3;
+    a, .download-btn:hover {
+      background-color: #fff700;
+      color: #111;
     }
 
     @media (max-width: 800px) {
@@ -183,7 +195,7 @@
       #pdf-render {
         width: 75% !important;
         height: auto !important;
-		box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+		    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       }
     
     .header-text {
