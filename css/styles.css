@@ -375,11 +375,6 @@
   height: 100vh !important;
 }
 
-.tableau-fullscreen-btn-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
 .tableau-fullscreen-btn {
   position: absolute;
   top: 10px;
