@@ -402,6 +402,7 @@
 .dashboard-viz {
   flex: 2 1 600px;
   min-width: 320px;
+  	  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 @media (max-width: 900px) {
   .dashboard-flex {
@@ -409,5 +410,6 @@
   }
   .dashboard-viz {
     min-width: 0;
+    	  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   }
 }
