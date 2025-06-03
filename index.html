@@ -97,6 +97,7 @@
     <h3 class="subheader">Interactive Tableau Dashboard</h3>
 
     <div class="tableau-viz-container" style="width:80%;margin:2rem auto;">
+      <button id="tableau-fullscreen-btn" style="margin-bottom:1rem;">Toggle Fullscreen</button>
       <div class='tableauPlaceholder' id='viz1748938337227' style='width:100%; height:800px;'>
         <noscript>
           <a href='#'>
@@ -128,6 +129,17 @@
         var vizElement = divElement.getElementsByTagName('object')[0];
         vizElement.style.width = '1000px';
         vizElement.style.height = '800px';
+      </script>
+      <script>
+        const fsBtn = document.getElementById('tableau-fullscreen-btn');
+        const vizContainer = document.getElementById('viz1748938337227');
+        fsBtn.addEventListener('click', () => {
+          if (!document.fullscreenElement) {
+            vizContainer.requestFullscreen();
+          } else {
+            document.exitFullscreen();
+          }
+        });
       </script>
 
     </div>
