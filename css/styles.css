@@ -352,13 +352,3 @@
     font-weight: 600;
   }
 
-  .tableau-viz-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.10);
-    padding: 1rem;
-    margin-bottom: 2rem;
-  }
