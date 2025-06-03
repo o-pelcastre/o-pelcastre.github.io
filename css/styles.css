@@ -386,3 +386,28 @@
   border-radius: 5px;
   cursor: pointer;
 }
+
+/* Two-column dashboard layout */
+.dashboard-flex {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+.dashboard-description {
+  flex: 1 1 320px;
+  max-width: 420px;
+}
+.dashboard-viz {
+  flex: 2 1 600px;
+  min-width: 320px;
+}
+@media (max-width: 900px) {
+  .dashboard-flex {
+    flex-direction: column;
+  }
+  .dashboard-viz {
+    min-width: 0;
+  }
+}

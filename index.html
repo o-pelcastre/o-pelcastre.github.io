@@ -96,56 +96,61 @@
 
     <h3 class="subheader">Interactive Tableau Dashboard</h3>
 
-    <div class="tableau-viz-container" style="width:95%;margin:2rem auto;">
-      
-      <div class='tableauPlaceholder' id='viz1748938337227' style='width:100%; height:800px;'>
-        <noscript>
-          <a href='#'>
-            <img alt='SF CRIME ANALYSIS (Jan 2003-Apr 2014)  '
-              src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;SF&#47;SFCrimeData_17489072619710&#47;SFCrimeAnalysis&#47;1_rss.png'
-              style='border: none' />
-          </a>
-        </noscript>
-        <object class='tableauViz' width='90%' height='90%' style='display:none;'>
-          <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-          <param name='embed_code_version' value='3' />
-          <param name='site_root' value='' />
-          <param name='name' value='SFCrimeData_17489072619710&#47;SFCrimeAnalysis' />
-          <param name='tabs' value='yes' />
-          <param name='toolbar' value='yes' />
-          <param name='static_image'
-            value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;SF&#47;SFCrimeData_17489072619710&#47;SFCrimeAnalysis&#47;1.png' />
-          <param name='animate_transition' value='yes' />
-          <param name='display_static_image' value='yes' />
-          <param name='display_spinner' value='yes' />
-          <param name='display_overlay' value='yes' />
-          <param name='display_count' value='yes' />
-          <param name='language' value='en-US' />
-        </object>
+    <div class="dashboard-flex">
+      <div class="dashboard-description">
+        <p>
+          This interactive Tableau dashboard visualizes San Francisco crime data from January 2004 to April 2014. It also includes two years of forcasted crime occurances. It allows users to explore crime trends by category, district, and time, providing insights into patterns and hotspots across the city.
+        </p>
+        <p>
+          Use the filters and interactive elements to drill down into specific neighborhoods or crime types. The dashboard is designed to support data-driven decision making for public safety, policy analysis, and community awareness. Use the fullscreen button to expand the dashboard for a more detailed view.
+        </p>
       </div>
-      <br />
-
+      <div class="dashboard-viz">
+        <div class='tableauPlaceholder' id='viz1748938337227' style='width:100%; height:800px;'>
+          <noscript>
+            <a href='#'>
+              <img alt='SF CRIME ANALYSIS (Jan 2003-Apr 2014)'
+                src='https://public.tableau.com/static/images/SF/SFCrimeData_17489072619710/SFCrimeAnalysis/1_rss.png'
+                style='border: none' />
+            </a>
+          </noscript>
+          <object class='tableauViz' width='100%' height='800' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='SFCrimeData_17489072619710/SFCrimeAnalysis' />
+            <param name='tabs' value='yes' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image'
+              value='https://public.tableau.com/static/images/SF/SFCrimeData_17489072619710/SFCrimeAnalysis/1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' />
+            <param name='language' value='en-US' />
+          </object>
+        </div>
         <button id="tableau-fullscreen-btn" class="tableau-fullscreen-btn">Fullscreen</button>
-      
+      </div>
+    </div>
+    <script type='text/javascript' src='https://public.tableau.com/javascripts/api/viz_v1.js'></script>
+    <script>
+      var divElement = document.getElementById('viz1748938337227');
+      var vizElement = divElement.getElementsByTagName('object')[0];
+      vizElement.style.width = '100%';
+      vizElement.style.height = '800px';
 
-      <script type='text/javascript' src='https://public.tableau.com/javascripts/api/viz_v1.js'></script>
-      <script type='text/javascript'>
-        var divElement = document.getElementById('viz1748938337227');
-        var vizElement = divElement.getElementsByTagName('object')[0];
-        vizElement.style.width = '1000px';
-        vizElement.style.height = '800px';
-      </script>
-      <script>
-        const fsBtn = document.getElementById('tableau-fullscreen-btn');
-        const vizContainer = document.getElementById('viz1748938337227');
-        fsBtn.addEventListener('click', () => {
-          if (!document.fullscreenElement) {
-            vizContainer.requestFullscreen();
-          } else {
-            document.exitFullscreen();
-          }
-        });
-      </script>
+      const fsBtn = document.getElementById('tableau-fullscreen-btn');
+      const vizContainer = document.getElementById('viz1748938337227');
+      fsBtn.addEventListener('click', () => {
+        if (!document.fullscreenElement) {
+          vizContainer.requestFullscreen();
+        } else {
+          document.exitFullscreen();
+        }
+      });
+    </script>
 
     </div>
 
