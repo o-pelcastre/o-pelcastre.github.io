@@ -42,7 +42,8 @@
         <p>I am a Business Intelligence and Financial Analysis professional with a strong academic foundation in Finance
           and Computer Information Systems, holding a B.S. in Business Administration from Cal Poly Pomona. My academic
           journey was marked by honors recognition and leadership roles, including serving as president of the
-          university's student-managed investment fund, where I was a critical part of a team that received the innagural first
+          university's student-managed investment fund, where I was a critical part of a team that received the
+          innagural first
           place in a CFAOC-sponsored
           competition for our university. This role sharpened my skills in equity research, portfolio management, and
           data-driven financial
@@ -88,6 +89,7 @@
           <img src="images/UC-531949e7-6480-4e0d-9f76-410ef1db0325.jpg" alt="SQL Progamming Basics Certificate">
         </a>
       </div>
+
       <!-- Add more items here as needed -->
     </div>
   </div>
@@ -102,10 +104,14 @@
       <div class="dashboard-description">
         <p><strong> SF Crime Analysis Dashboard </strong></p>
         <p>
-          This interactive Tableau dashboard visualizes San Francisco crime data from January 2004 to April 2014. It also includes two years of forcasted crime occurances. It allows users to explore crime trends by category, district, and time, providing insights into patterns and hotspots across the city.
+          This interactive Tableau dashboard visualizes San Francisco crime data from January 2004 to April 2014. It
+          also includes two years of forcasted crime occurances. It allows users to explore crime trends by category,
+          district, and time, providing insights into patterns and hotspots across the city.
         </p>
         <p>
-          Use the filters and interactive elements to drill down into specific neighborhoods or crime types. The dashboard is designed to support data-driven decision making for public safety, policy analysis, and community awareness. Use the fullscreen button to expand the dashboard for a more detailed view.
+          Use the filters and interactive elements to drill down into specific neighborhoods or crime types. The
+          dashboard is designed to support data-driven decision making for public safety, policy analysis, and community
+          awareness. Use the fullscreen button to expand the dashboard for a more detailed view.
         </p>
       </div>
       <div class="dashboard-viz">
@@ -137,23 +143,23 @@
         <button id="tableau-fullscreen-btn" class="tableau-fullscreen-btn">Fullscreen</button>
       </div>
 
-    <script type='text/javascript' src='https://public.tableau.com/javascripts/api/viz_v1.js'></script>
-    <script>
-      var divElement = document.getElementById('viz1748938337227');
-      var vizElement = divElement.getElementsByTagName('object')[0];
-      vizElement.style.width = '100%';
-      vizElement.style.height = '800px';
+      <script type='text/javascript' src='https://public.tableau.com/javascripts/api/viz_v1.js'></script>
+      <script>
+        var divElement = document.getElementById('viz1748938337227');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = '800px';
 
-      const fsBtn = document.getElementById('tableau-fullscreen-btn');
-      const vizContainer = document.getElementById('viz1748938337227');
-      fsBtn.addEventListener('click', () => {
-        if (!document.fullscreenElement) {
-          vizContainer.requestFullscreen();
-        } else {
-          document.exitFullscreen();
-        }
-      });
-    </script>
+        const fsBtn = document.getElementById('tableau-fullscreen-btn');
+        const vizContainer = document.getElementById('viz1748938337227');
+        fsBtn.addEventListener('click', () => {
+          if (!document.fullscreenElement) {
+            vizContainer.requestFullscreen();
+          } else {
+            document.exitFullscreen();
+          }
+        });
+      </script>
 
     </div>
 
@@ -256,6 +262,11 @@
         title="Connect with me on LinkedIn">
         <img src="https://img.icons8.com/ios-filled/50/000000/linkedin.png" alt="LinkedIn Icon">
         <span>LinkedIn</span>
+      </a>
+      <a href="https://github.com/o-pelcastre" class="contact-button" target="_blank"
+        title="View my projects on GitHub">
+        <img src="https://img.icons8.com/ios-filled/50/000000/github.png" alt="GitHub Icon">
+        <span>GitHub</span>
       </a>
     </div>
   </div>
