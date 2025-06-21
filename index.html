@@ -34,8 +34,8 @@
     <button class="menu-toggle" onclick="toggleMenu()">Menu</button>
     <nav>
       <a href="#welcome">HELLO</a>
+      <a href="portfolio.html">PORTFOLIO</a>
       <a href="#skills">SKILLS & CERTIFICATIONS</a>
-      <a href="#portfolio">PORTFOLIO</a>
       <a href="#about">ABOUT ME</a>
       <a href="#links">LINKS</a>
     </nav>
@@ -49,9 +49,6 @@
           <p>I am a Business Intelligence and Financial Analysis professional with a strong academic foundation in Finance and Computer Information Systems, holding a B.S. in Business Administration from Cal Poly Pomona. My academic career was distinguished by honors recognition and leadership opportunities, including serving as president of the university's student-managed investment fund. As a core member of the team, I helped lead Cal Poly Pomona to win the inaugural first-place award in a CFAOC-sponsored portfolio competition. This experience sharpened my skills in equity research, portfolio construction, and strategic financial analysis.
           </p>
 
-          <p>My technical toolkit includes Python programming for data analysis and automation, advanced Excel modeling, and experience with tools such as Tableau, Power BI, and SQL. I've applied these tools to a variety of projects, including forecasting models, performance dashboards, and analytical reports. These efforts demonstrate my ability to deliver clear, actionable insights and well-documented results. My portfolio highlights real-world applications that combine data, finance, and communication.
-          </p>
-
           <p>Before transitioning into finance and business intelligence, I operated a portrait photography business and worked with Sunset School Portraits. These entrepreneurial roles taught me discipline, adaptability, and customer-focused thinking. Today, I bring a creative and analytical perspective to every project, along with a strong commitment to continuous learning and producing meaningful, measurable outcomes.
           </p>
 
@@ -63,8 +60,50 @@
     </div>
   </div>
 
+
+
+
+  <div class="container" id="portfolio">
+    <a class= "portfolio-link" href="portfolio.html"><h2>Portfolio</h2></a>
+    <p>
+      My technical toolkit includes Python programming for data analysis and automation, advanced Excel modeling, and experience with tools such as Tableau, Power BI, and SQL. I've applied these tools to a variety of projects, including forecasting models, performance dashboards, and analytical reports. These efforts demonstrate my ability to deliver clear, actionable insights and well-documented results. My portfolio highlights real-world applications that combine data, finance, and communication.
+    </p>
+    <p>
+      I invite you to explore my portfolio to see how I can contribute to your team. Whether you're looking for a data analyst, financial analyst, or business intelligence professional, I am eager to bring my skills and experience to help drive your organization's success.
+    </p>
+
+    <div class="portfolio-cta" style="text-align: center; text-decoration: solid;">
+      <a href="portfolio.html" class="cta-button">
+        <strong>Explore My Full Portfolio &rarr;</strong>
+        <span>See detailed case studies, dashboards, and project highlights</span>
+      </a>
+    </div>
+
+    <p>
+      <strong>Note:</strong> This portfolio is a work in progress, and I am continuously updating it with new projects and skills. Please check back regularly for the latest updates.
+    </p>
+
+  </div>
+
   <div class="container" id="skills">
     <h2>Skills & Certifications</h2>
+
+    <p>My skill set includes:</p>
+    <div class="skills-list-columns">
+      <ul style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+        <li>Python programming for data analysis and automation</li>
+        <li>Advanced Excel modeling and financial analysis</li>
+        <li>Data visualization with Tableau and Power BI</li>
+        <li>SQL for database querying and management</li>
+        <li>Financial modeling and forecasting</li>
+        <li>Equity research and portfolio management</li>
+        <li>Strong analytical and problem-solving skills</li>
+        <li>Excellent communication and presentation abilities</li>
+        <li>Project management and team leadership</li>
+        <li>Adaptability and resourcefulness in dynamic environments</li>
+      </ul>
+    </div>
+    
 
     <div class="skills-grid">
       <div class="skill-item">
@@ -90,163 +129,34 @@
       </div>
       <!-- Add more items here as needed -->
     </diV>
-
-  </div>
-
-  <div class="container" id="portfolio">
-    <h2>Portfolio</h2>
-
-
-    <h3 class="subheader">Interactive Tableau Dashboard</h3>
-
-    <div class="dashboard-flex">
-      <div class="dashboard-description">
-        <p><strong> SF Crime Analysis Dashboard </strong></p>
-        <p>
-          This interactive Tableau dashboard visualizes San Francisco crime data from January 2004 to April 2014. It
-          also includes two years of forcasted crime occurances. It allows users to explore crime trends by category,
-          district, and time, providing insights into patterns and hotspots across the city.
-        </p>
-        <p>
-          Use the filters and interactive elements to drill down into specific neighborhoods or crime types. The
-          dashboard is designed to support data-driven decision making for public safety, policy analysis, and community
-          awareness. Use the fullscreen button to expand the dashboard for a more detailed view.
-        </p>
-      </div>
-      <div class="dashboard-viz">
-        <div class='tableauPlaceholder' id='viz1748938337227' style='width:100%; height:800px;'>
-          <noscript>
-            <a href='#'>
-              <img alt='SF CRIME ANALYSIS (Jan 2003-Apr 2014)'
-                src='https://public.tableau.com/static/images/SF/SFCrimeData_17489072619710/SFCrimeAnalysis/1_rss.png'
-                style='border: none' />
-            </a>
-          </noscript>
-          <object class='tableauViz' width='100%' height='800' style='display:none;'>
-            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-            <param name='embed_code_version' value='3' />
-            <param name='site_root' value='' />
-            <param name='name' value='SFCrimeData_17489072619710/SFCrimeAnalysis' />
-            <param name='tabs' value='yes' />
-            <param name='toolbar' value='yes' />
-            <param name='static_image'
-              value='https://public.tableau.com/static/images/SF/SFCrimeData_17489072619710/SFCrimeAnalysis/1.png' />
-            <param name='animate_transition' value='yes' />
-            <param name='display_static_image' value='yes' />
-            <param name='display_spinner' value='yes' />
-            <param name='display_overlay' value='yes' />
-            <param name='display_count' value='yes' />
-            <param name='language' value='en-US' />
-          </object>
-        </div>        
-      </div>
-
-      <script type='text/javascript' src='https://public.tableau.com/javascripts/api/viz_v1.js'></script>
-      <script>
-        var divElement = document.getElementById('viz1748938337227');
-        var vizElement = divElement.getElementsByTagName('object')[0];
-        vizElement.style.width = '100%';
-        vizElement.style.height = '800px';
-
-        const fsBtn = document.getElementById('tableau-fullscreen-btn');
-        const vizContainer = document.getElementById('viz1748938337227');
-        fsBtn.addEventListener('click', () => {
-          if (!document.fullscreenElement) {
-            vizContainer.requestFullscreen();
-          } else {
-            document.exitFullscreen();
-          }
-        });
-      </script>
-
-    </div>
-
-    <h3 class="subheader">Seminar in Portfolio Management - Capstone Project</h3>
-    <div class="pdf-section">
-      <div class="pdf-viewer">
-        <canvas id="pdf-render"></canvas>
-        <div id="pdf-controls">
-          <button onclick="prevPage()">Previous</button>
-          <span>Page: <span id="page-num"></span> / <span id="page-count"></span></span>
-          <button onclick="nextPage()">Next</button><br>
-        </div>
-      </div>
-      <div class="pdf-description">
-        <p><strong>CO CAPITAL - Mock Fund Annual Report</strong></p>
-        <p>This project was created as part of FRL 4331 - Seminar in Portfolio Management at Cal Poly Pomona. The course
-          focused on developing and evaluating alternative portfolio selection models for both individual and
-          institutional use, emphasizing traditional and non-traditional investments. It served as the capstone
-          experience for my finance concentration, combining theory and hands-on application in asset management and
-          investment strategy.</p>
-        <p>This annual report showcases a comprehensive review of the investment fund's performance, strategic
-          allocation, and financial health. It includes analysis across asset classes, geographic exposure, and sector
-          positioning.</p>
-        <p>As part of the team, I contributed to the preparation and review of portfolio summaries, built visualizations
-          in Python, and cross-validated performance metrics with Excel-based models. This document demonstrates both
-          technical accuracy and clear communication in financial reporting.</p>
-
-        <a class="download-btn" href="pdf/CO CAPITAL - MGIF Annual Report.pdf" download>Download PDF</a>
-      </div>
-    </div>
-
-    <h3 class="subheader">CFAOC - REQUEST FOR PROPOSAL - SMIF Fall 2019 Presentation</h3>
-    <div class="pdf-section">
-      <div class="pdf-viewer">
-        <canvas id="pdf-render-smif"></canvas>
-        <div id="pdf-controls-smif">
-          <button onclick="prevPageSmif()">Previous</button>
-          <span>Page: <span id="page-num-smif"></span> / <span id="page-count-smif"></span></span>
-          <button onclick="nextPageSmif()">Next</button>
-        </div>
-      </div>
-      <div class="pdf-description">
-        <p><strong>Student Managed Investment Fund - Fall 2019 Presentation</strong></p>
-        <p>This project was a collaborative effort and our entire team contributed insights across each section. As the
-          lead on fixed-income allocation for our student-managed fund, I began by gathering and cleaning yield and
-          performance data across key bond subclasses—U.S. Treasuries, investment-grade corporate bonds, and high-yield
-          issues. I analyzed metrics such as yield-to-maturity, duration, and credit spreads to understand each
-          segment's risk/return trade-off. In our portfolio modeling, I deliberately sized our duration exposure to
-          benefit from potential rate declines, while preserving enough liquidity to rebalance quickly if conditions
-          shifted. This process involved scripting in Python to pull FRED data, building dynamic Excel models for
-          scenario analysis, and validating outputs against historical yield curve movements.</p>
-        <p>Given the scope and timeline constraints of a student fund, we opted for broad-market ETFs rather than
-          selecting individual bonds. Using ETFs allowed us to achieve our target exposures—40% Treasury, 45% corporate,
-          and 15% high yield—without the operational complexity and lot-size restrictions of direct bond trading. This
-          ETF-based strategy provided subclass-level diversification, intraday liquidity, and streamlined execution,
-          ensuring our recommendations were both academically rigorous and practical within the fund's framework.</p>
-        <a class="download-btn" href="pdf/SMIF PRESENTATION FALL 2019.pdf" download>Download SMIF Presentation</a>
-      </div>
-    </div>
-
   </div>
 
 
 
 
+<div class="container" id="about">
+  <h2>About Me</h2>
 
-  <div class="container" id="about">
-    <h2>About Me</h2>
-
-    <p>I'm Omar Pelcastre Cabrera, a finance and business intelligence professional with a B.S. in Business
-      Administration from Cal Poly Pomona, concentrating in Finance and Computer Information Systems. During my time at
-      the university, I served as president of the student-managed investment fund, where I was part of the team led a
-      group of talented individuals to a first-place finish in a CFAOC-sponsored portfolio competition. These
-      experiences gave me hands-on exposure to equity research, financial strategy, and data analytics&mdash;foundations
-      I continue to build on today.</p>
-    <p>Before I was authorized to work legally in the U.S., I spent nearly a decade adapting to the constraints of
-      undocumented status. I pursued photography out of both necessity and creativity&mdash;eventually running my own
-      business and contracting with studios to support myself and my family. During the pandemic, I transitioned to gig
-      work, where I developed custom tools to track and forecast my income. These moments shaped my mindset:
-      resourceful, flexible, and grounded in real-world problem-solving. I later joined Sunset School Portraits, a role
-      that allowed me to work while caring for my young son.</p>
-    <p>My technical strengths lie in financial research, equity analysis, and data-driven modeling using Python and
-      Excel. I continue to sharpen these skills through personal projects and ongoing education. My goal is to apply
-      this technical foundation&mdash;and the resilience of my journey&mdash;to a team that values strategic thinking,
-      adaptability, and meaningful impact. What drives me most is the ability to keep learning while supporting my
-      family. I'm most fulfilled when we're together outdoors, discovering something new. I strive to be a great example
-      for my son and a loving husband to my wife, and I define success as doing meaningful work with purpose while
-      providing for those I love.</p>
-  </div>
+  <p>I'm Omar Pelcastre Cabrera, a finance and business intelligence professional with a B.S. in Business
+    Administration from Cal Poly Pomona, concentrating in Finance and Computer Information Systems. During my time at
+    the university, I served as president of the student-managed investment fund, where I was part of the team led a
+    group of talented individuals to a first-place finish in a CFAOC-sponsored portfolio competition. These
+    experiences gave me hands-on exposure to equity research, financial strategy, and data analytics&mdash;foundations
+    I continue to build on today.</p>
+  <p>Before I was authorized to work legally in the U.S., I spent nearly a decade adapting to the constraints of
+    undocumented status. I pursued photography out of both necessity and creativity&mdash;eventually running my own
+    business and contracting with studios to support myself and my family. During the pandemic, I transitioned to gig
+    work, where I developed custom tools to track and forecast my income. These moments shaped my mindset:
+    resourceful, flexible, and grounded in real-world problem-solving. I later joined Sunset School Portraits, a role
+    that allowed me to work while caring for my young son.</p>
+  <p>My technical strengths lie in financial research, equity analysis, and data-driven modeling using Python and
+    Excel. I continue to sharpen these skills through personal projects and ongoing education. My goal is to apply
+    this technical foundation&mdash;and the resilience of my journey&mdash;to a team that values strategic thinking,
+    adaptability, and meaningful impact. What drives me most is the ability to keep learning while supporting my
+    family. I'm most fulfilled when we're together outdoors, discovering something new. I strive to be a great example
+    for my son and a loving husband to my wife, and I define success as doing meaningful work with purpose while
+    providing for those I love.</p>
+</div>
 
 
   <div class="container" id="links">
@@ -275,122 +185,10 @@
   </footer>
 
   <script>
-    const url = 'pdf/CO CAPITAL - MGIF Annual Report.pdf';
-    let pdfDoc = null,
-      pageNum = 1,
-      pageIsRendering = false,
-      pageNumIsPending = null;
-    const scale = 1.5,
-      canvas = document.getElementById('pdf-render'),
-      ctx = canvas.getContext('2d');
-
-    const renderPage = num => {
-      pageIsRendering = true;
-      pdfDoc.getPage(num).then(page => {
-        const viewport = page.getViewport({ scale });
-        canvas.height = viewport.height;
-        canvas.width = viewport.width;
-        const renderCtx = {
-          canvasContext: ctx,
-          viewport
-        };
-        page.render(renderCtx).promise.then(() => {
-          pageIsRendering = false;
-          if (pageNumIsPending !== null) {
-            renderPage(pageNumIsPending);
-            pageNumIsPending = null;
-          }
-        });
-        document.getElementById('page-num').textContent = num;
-      });
-    };
-
-    const queueRenderPage = num => {
-      if (pageIsRendering) {
-        pageNumIsPending = num;
-      } else {
-        renderPage(num);
-      }
-    };
-
-    const prevPage = () => {
-      if (pageNum <= 1) return;
-      pageNum--;
-      queueRenderPage(pageNum);
-    };
-
-    const nextPage = () => {
-      if (pageNum >= pdfDoc.numPages) return;
-      pageNum++;
-      queueRenderPage(pageNum);
-    };
-
-    pdfjsLib.getDocument(url).promise.then(pdfDoc_ => {
-      pdfDoc = pdfDoc_;
-      document.getElementById('page-count').textContent = pdfDoc.numPages;
-      renderPage(pageNum);
-    });
-  </script>
-
-  <script>
-    // SMIF PDF viewer
-    const urlSmif = 'pdf/SMIF PRESENTATION FALL 2019.pdf';
-    let pdfDocSmif = null, pageNumSmif = 28, pageIsRenderingSmif = false, pageNumPendingSmif = null;
-    const scaleSmif = 1.5, canvasSmif = document.getElementById('pdf-render-smif'), ctxSmif = canvasSmif.getContext('2d');
-
-    const renderPageSmif = num => {
-      pageIsRenderingSmif = true;
-      pdfDocSmif.getPage(num).then(page => {
-        const viewport = page.getViewport({ scale: scaleSmif });
-        canvasSmif.height = viewport.height;
-        canvasSmif.width = viewport.width;
-        page.render({ canvasContext: ctxSmif, viewport }).promise.then(() => {
-          pageIsRenderingSmif = false;
-          if (pageNumPendingSmif !== null) {
-            renderPageSmif(pageNumPendingSmif);
-            pageNumPendingSmif = null;
-          }
-        });
-        document.getElementById('page-num-smif').textContent = num;
-      });
-    };
-
-    const queueRenderPageSmif = num => {
-      if (pageIsRenderingSmif) {
-        pageNumPendingSmif = num;
-      } else {
-        renderPageSmif(num);
-      }
-    };
-
-    const prevPageSmif = () => {
-      if (pageNumSmif <= 1) return;
-      pageNumSmif--;
-      queueRenderPageSmif(pageNumSmif);
-    };
-
-    const nextPageSmif = () => {
-      if (pageNumSmif >= pdfDocSmif.numPages) return;
-      pageNumSmif++;
-      queueRenderPageSmif(pageNumSmif);
-    };
-
-    pdfjsLib.getDocument(urlSmif).promise.then(pdfDoc_ => {
-      pdfDocSmif = pdfDoc_;
-      document.getElementById('page-count-smif').textContent = pdfDocSmif.numPages;
-      renderPageSmif(pageNumSmif);
-    });
-
-
-
-  </script>
-
-  <script>  function toggleMenu() {
+    function toggleMenu() {
       const nav = document.querySelector('nav');
       nav.classList.toggle('show');
     }
-
-
   </script>
 
   <script>

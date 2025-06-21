@@ -32,7 +32,7 @@ header {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
   width: 100%;
-  max-width: 1200px;
+  max-width: 600px;
   margin: 0 auto;
   text-align: center;
   position: relative;
@@ -46,7 +46,23 @@ header {
   justify-content: center;
 }
 
+.portfolio-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+}
 
+.skills-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: .5rem;
+}
+
+.skills-grid-text {
+  font-weight: 600;
+  margin-top: 1rem;
+}
 
 nav {
   display: flex;
@@ -330,6 +346,7 @@ h2,
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
   margin-top: 1rem;
+  align-content: center;
 }
 
 .skill-item img {
