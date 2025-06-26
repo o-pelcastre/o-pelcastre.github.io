@@ -1,213 +1,696 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
-
-
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio of Omar Pelcastre Cabrera, specializing in data analytics, Python programming, and financial analysis.">
-  <meta name="robots" content="index, follow">
-  <meta property="og:title" content="Omar Pelcastre Cabrera Portfolio">
-  <meta property="og:description" content="Showcasing skills in Business Intelligence, Financial Analysis, and Python.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://omarpelcastrecabrera.com/">
-  <title>Omar Pelcastre Cabrera | Business Intelligence & Finance Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Omar Pelcastre | Finance Analyst &amp; BI Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Calibre:wght@400;600;700&family=SF+Mono&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #0a0f1e;
+            --text: #ccd6f6;
+            --light-text: #a8b2d1;
+            --accent: #64ffda;
+            --font-sans: 'Calibre', sans-serif;
+            --font-mono: 'SF Mono', monospace;
+        }
 
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--font-mono);
+            line-height: 1.5;
+        }
+
+        html,
+        body {
+            margin: 0;
+            height: 100%;
+        }
+
+        .layout {
+            display: grid;
+            grid-template-columns: 40% 60%;
+            grid-template-rows: auto 1fr;
+            grid-template-areas: "left right";
+            height: 100vh;
+        }
+
+        .left {
+            background: var(--bg);
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-end;
+            text-align: right;
+        }
+
+        .right {
+            background: var(--bg);
+            padding: 2rem 2rem;
+            overflow-y: auto;
+            /* scroll content if tall */
+        }
+
+        b { color: var(--accent); }
+
+        .sidebar-nav {
+            margin-top: 1rem;
+            padding: 0 2rem;
+            font-size: 0.5rem;
+        }
+
+
+        .sidebar-social {
+            display: flex;
+            padding: 2rem;
+            margin-top: auto;
+        }
+
+        .social-link {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            width: 25px;
+            height: 25px;
+            margin-right: 1rem;
+            color: var(--light-text);
+        }
+
+        .social-icon {
+            width: 25px;
+            height: 25px;
+            fill: var(--light-text);
+            opacity: 0.75;
+            transition: opacity 0.25s ease-in-out;
+            text-decoration: none;
+        }
+
+        .social-link:hover .social-icon,
+        .social-link:focus .social-icon {
+            opacity: 1;
+            text-decoration: none;
+            /* full opacity on hover/focus */
+        }
+
+        nav ul {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            font-size: .8rem;
+            color: var(--light-text);
+            text-decoration: none;
+            letter-spacing: 0.1em;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        .header {
+            width: 100%;
+
+            flex-direction: column;
+            justify-content: normal;
+            align-items: flex-start;
+            padding: 6em 2rem;
+        }
+
+        .header .intro {
+            color: var(--accent);
+            font-family: var(--font-mono);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 3rem;
+            color: #fff;
+        }
+
+        .header h2 {
+            margin: 0.5rem 0 .5rem;
+            font-size: 2rem;
+            color: var(--light-text);
+        }
+
+        .header p {
+            max-width: 540px;
+            font-size: .75rem;
+            color: var(--light-text);
+        }
+
+        .section {
+            padding: 1rem 1rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #fff;
+            background-color: var(--bg);
+            background-size: auto;
+            position: relative;
+            margin-left: .5rem;
+        }
+
+        .section p,
+        .section ul {
+            font-size: 1rem;
+            color: var(--light-text);
+        }
+
+        .section ul {
+            padding-left: 1.2rem;
+        }
+
+        .section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* —— Projects List Reset —— */
+        .projects-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .project-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
+            margin-bottom: 2rem;
+            transition: background 0.2s;
+        }
+        .project-card:hover {
+            background: rgba(100,255,218,0.1);
+        }
+
+        /* —— Thumbnail —— */
+        .project-thumb {
+            flex: 0 0 100px; /* fixed width */
+            height: 80px;
+            overflow: hidden;
+        }
+        .project-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* —— Content Pane —— */
+        .project-info {
+            padding: 1rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+        }
+        .project-info h3 {
+            margin: 0;
+            font-size: 1.25rem;
+            color: #fff;
+            display: flex;
+            align-items: center;
+        }
+        .project-info h3 .arrow {
+            margin-left: 0.5rem;
+            transition: transform 0.2s;
+        }
+        .project-card:hover .arrow {
+            transform: translateX(3px);
+        }
+        .project-info p {
+            margin: 0.5rem 0 1rem;
+            color: var(--light-text);
+            font-size: 0.9rem;
+        }
+
+        /* —— Tags —— */
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .project-tags span {
+            background: rgba(100,255,218,0.15);
+            color: var(--accent);
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            padding: 0.25rem 0.6rem;
+            border-radius: 5px;
+        }
+
+        a.project-link {
+            text-decoration: none;
+
+
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .skills-list span {
+            background: rgba(100,255,218,0.15);
+            color: var(--accent);
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            padding: 0.25rem 0.6rem;
+            border-radius: 3px;
+        }
+
+        /* —— Experience List & Items —— */
+        .experience-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .exp-item {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            align-items: start;
+        }
+
+        /* Dates on the left */
+        .exp-date {
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            color: var(--light-text);
+            text-align: right;
+            padding-top: 0.25rem;
+        }
+
+        /* Card on the right */
+        .exp-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 4px;
+            padding: 1rem 1.5rem;
+            transition: background 0.2s;
+        }
+        .exp-card:hover {
+            background: rgba(100,255,218,0.1);
+        }
+
+        .exp-card h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: #fff;
+        }
+
+        .exp-company {
+            margin: 0.25rem 0 0.75rem;
+            font-size: 0.9rem;
+            color: var(--light-text);
+            font-style: italic;
+        }
+
+        .exp-bullets {
+            margin: 0;
+            padding-left: 1.2rem;
+            color: var(--light-text);
+            font-size: 0.875rem;
+        }
+        .exp-bullets li {
+            margin-bottom: 0.5rem;
+        }
+
+
+        footer {
+            text-align: right;
+            padding: 4rem 2rem;
+            font-size: 0.5rem;
+            color: var(--light-text);
+        }
+
+        /* —— Responsive —— */
+        @media (max-width: 768px) {
+            .layout { display: flex; flex-direction: column; }
+            .left {  width: 100%; align-items: center; justify-content: space-between; padding: 1rem; }
+            .sidebar-nav ul { flex-direction: row; gap: 1rem; }
+            .header { padding: 2rem 1rem; text-align: left; }
+            .header h1 { font-size: 2rem; }
+            .header h2 { font-size: 1.25rem; }
+            .project-card { flex-direction: column; }
+            .project-thumb { width: 100%; height: auto; }
+            .right { padding: 2rem 1rem; }
+            .exp-item { display: block; }
+            .exp-date { text-align: left; margin-bottom: 0.5rem; }
+        }
+
+        @media (max-width: 480px) {
+            nav a { font-size: 0.75rem; }
+            .header h1 { font-size: 1.75rem; }
+            .header h2 { font-size: 1rem; }
+        }
+
+
+
+    </style>
 </head>
 
 <body>
+    <div class="layout">
+        <aside class="left">
 
-  <header>
-    <div class="header-overlay">
-      <h1>Omar Pelcastre Cabrera</h1>
-      <p>Business Intelligence | Data Analysis | Financial Analysis | Python</p>
-    </div>    
-  </header>
+            <header class="header">
+                <div class="intro">Hi, my name is</div>
+                <h1>Omar Pelcastre.</h1>
+                <h2>Finance Analyst & BI Developer</h2>
+                <h3>The devil's in the detail. Let's turn your data into actionable insights.</h3>
+            </header>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#about">01. About</a></li>
+                    <li><a href="#projects">02. Current Projects</a></li>
+                    <li><a href="#skills">03. Skills</a></li>
+                    <li><a href="#experience">04. Experience</a></li>
+                </ul>
+            </nav>
 
+            <div class="sidebar-social">
+                <a 
+                    href="https://github.com/o-pelcastre"
+                    class="social-link"
+                    aria-label="GitHub"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <i class="fab fa-github social-icon" aria-hidden="true"></i>
+                </a>
+                <a 
+                    href="https://www.linkedin.com/in/opelcastre/"
+                    class="social-link"
+                    aria-label="LinkedIn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <i class="fab fa-linkedin social-icon" aria-hidden="true"></i>
+                </a>
 
-    <button class="menu-toggle" onclick="toggleMenu()">Menu</button>
-    <nav>
-      <a href="#welcome">HELLO</a>
-      <a href="portfolio.html">PORTFOLIO</a>
-      <a href="#skills">SKILLS & CERTIFICATIONS</a>
-      <a href="#about">ABOUT ME</a>
-      <a href="#links">LINKS</a>
-    </nav>
+                <a 
+                    href="https://instagram.com/quantomatic/"
+                    class="social-link"
+                    aria-label="Instagram"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <i class="fab fa-instagram social-icon" aria-hidden="true"></i>
+                </a>
+            </div>
 
+        </aside>
 
+        <main class="right">
+            <section id="about" class="section">
+                <h2>About</h2>
+                <p>I'm Omar Pelcastre Cabrera, an aspiring finance and business intelligence professional with a <b>B.S. in Business Administration from Cal Poly Pomona</b>, concentrating in <b>Finance</b> and <b>Computer Information Systems</b>. During my time at the university, I served as president of the student-managed investment fund, where I was part of the team led a group of talented individuals to a first-place finish in a <b>CFAOC-sponsored portfolio competition</b>. These experiences gave me hands-on exposure to <b>equity research, financial strategy, and data analytics</b>&mdash foundations I continue to build on today.
+                </p>
 
-  <div id="content">
-    <div class="container" id="welcome">
-    <h2>Welcome</h2>
-    <div class="welcome-section">
-      <div class="welcome-text">
-          <p>I am a Business Intelligence and Financial Analysis professional with a strong academic foundation in Finance and Computer Information Systems, holding a B.S. in Business Administration from Cal Poly Pomona. My academic career was distinguished by honors recognition and leadership opportunities, including serving as president of the university's student-managed investment fund. As a core member of the team, I helped lead Cal Poly Pomona to win the inaugural first-place award in a CFAOC-sponsored portfolio competition. This experience sharpened my skills in equity research, portfolio construction, and strategic financial analysis.
-          </p>
+                <p>Before I was authorized to work legally in the U.S., I spent nearly a decade adapting to the constraints of undocumented status. I pursued photography out of both necessity and creativity&mdash;eventually running my own business and contracting with studios to support myself and my family. During the pandemic, I transitioned to <b>gig work (Uber and DoorDash)</b>gig work (Uber and Postmates), where I developed custom tools to track and forecast my income. These moments shaped my mindset: <b>resourceful, flexible, and grounded</b> in real-world problem-solving. I later joined Sunset School Portraits, a role that allowed me to work and continue developing my skills while caring for my son.
+                </p>
 
-          <p>Before transitioning into finance and business intelligence, I operated a portrait photography business and worked with Sunset School Portraits. These entrepreneurial roles taught me discipline, adaptability, and customer-focused thinking. Today, I bring a creative and analytical perspective to every project, along with a strong commitment to continuous learning and producing meaningful, measurable outcomes.
-          </p>
+                <p>My technical strengths are reinforced by my business acumen that lie in <b>financial research, equity analysis, and data-driven modeling</b>. Some of the tools I use include <b>Python, R, and Excel</b>. No-code tools also play a role in my toolkit <b>(Tableau, PowerBI & Airtable)</b>. I continue to sharpen these skills through personal projects and ongoing education. My goal is to apply this technical foundation&mdash;and the resilience of my journey&mdash;to a team that values <b>strategic thinking, adaptability, and meaningful impact</b>. What drives me most is the ability to keep learning while supporting my family. I'm most fulfilled when we're together outdoors, discovering something new. I strive to be a great example for my son and a loving husband to my wife, and I define success as doing meaningful work with purpose while providing for those <b>I love</b>.
+                </p>
 
-          <p>If you're hiring for a role in financial analysis or business intelligence, I'd love to share more about how I can bring value to your team.</p>
-      </div>
-      <div class="welcome-image">
-        <img src="images/my_portrait.jpg" alt="Omar Pelcastre Cabrera professional portrait">
-      </div>
+                <p>Feel free to connect with me on <a href="https://www.linkedin.com/in/o-pelcastre">LinkedIn</a> or checkout my <a href="https://github.com/o-pelcastre">GitHub</a> for more projects.
+                </p>
+            </section>
+            <section id="projects" class="section">
+                <h2>Current Projects</h2>
+                <ul class="projects-list">
+                    <!-- Portfolio Optimization -->
+                    <li class="project-card">
+                        <a href="https://github.com/o-pelcastre/portfolio-optimization" class="project-link" target="_blank"
+                            rel="noopener noreferrer">
+                            <div class="project-thumb">
+                                <img src="assets/img/portfolio-opt.png" alt="Portfolio Optimization screenshot">
+                            </div>
+                            <div class="project-info">
+                                <h3>
+                                    Portfolio Optimization
+                                    <span class="arrow">↗</span>
+                                </h3>
+                                <p>
+                                    Python-based mean-variance optimizer that pulls historical price data, computes
+                                    efficient frontiers, and outputs interactive charts.
+                                </p>
+                                <div class="project-tags">
+                                    <span>Jupyter Notebook</span>
+                                    <span>Python</span>
+                                    <span>Pandas</span>
+                                    <span>NumPy</span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                
+                    <!-- Unemployment Demographic Analysis -->
+                    <li class="project-card">
+                        <a href="https://github.com/o-pelcastre/unemployment-demographic-analysis" class="project-link" target="_blank"
+                            rel="noopener noreferrer">
+                            <div class="project-thumb">
+                                <img src="assets/img/unemployment-analysis.png" alt="Unemployment Analysis screenshot">
+                            </div>
+                            <div class="project-info">
+                                <h3>
+                                    Unemployment Demographic Analysis
+                                    <span class="arrow">↗</span>
+                                </h3>
+                                <p>
+                                    Jupyter notebook exploring unemployment trends by age, race, and gender
+                                    using Census and BLS data.
+                                </p>
+                                <div class="project-tags">
+                                    <span>Jupyter Notebook</span>
+                                    <span>Python</span>
+                                    <span>Pandas</span>
+                                    <span>Matplotlib</span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                
+                    <!-- Tableau Crime Dashboard -->
+                    <li class="project-card">
+                        <a href="https://public.tableau.com/app/profile/omar.pelcastre/viz/SFCrimeData_17489072619710/SFCrimeAnalysis"
+                            class="project-link" target="_blank" rel="noopener noreferrer">
+                            <div class="project-thumb">
+                                <img src="assets/img/sf-crime-dashboard.png" alt="SF Crime Dashboard thumbnail">
+                            </div>
+                            <div class="project-info">
+                                <h3>
+                                    SF Crime Data Dashboard
+                                    <span class="arrow">↗</span>
+                                </h3>
+                                <p>
+                                    Interactive Tableau viz showing crime patterns in San Francisco—filter by
+                                    category, time, and neighborhood.
+                                </p>
+                                <div class="project-tags">
+                                    <span>Tableau</span><span>Data Viz</span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+
+                    <!-- Coursework : Seminar in Portfolio Management Report -->
+                    <li class="project-card">
+                        <a href="assets/pdfs/pdf-seminar-report.pdf" class="project-link" target="_blank" rel="noopener noreferrer">
+                            <div class="project-thumb">
+                                <img src="assets/img/pdf-icon-seminar-report.png" alt="PDF icon">
+                            </div>
+                            <div class="project-info">
+                                <h3>
+                                    Q2 Financial Summary (PDF)
+                                    <span class="arrow">↗</span>
+                                </h3>
+                                <p>
+                                    12-page report detailing Q2 performance, variance analysis, and forward guidance.
+                                </p>
+                                <div class="project-tags">
+                                    <span>PDF</span>
+                                    <span>Report</span>
+                                    <span>Financial Analysis</span>
+                                    <span>Google Sheets</span>
+                                    <span>Refinitiv Eikon</span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="project-card">
+                        <a href="assets/pdfs/pdf-smif-presentation.pdf" class="project-link" target="_blank" rel="noopener noreferrer">
+                            <div class="project-thumb">
+                                <img src="assets/img/pdf-icon-smif-presentation.png" alt="PDF icon">
+                            </div>
+                            <div class="project-info">
+                                <h3>
+                                    CFAOC Portfolio Competition Presentation (PDF)
+                                    <span class="arrow">↗</span>
+                                </h3>
+                                <p>
+                                    15-page presentation summarizing our winning portfolio strategy, analysis, and performance metrics.
+                                </p>
+                                <div class="project-tags">
+                                    <span>Excel</span>
+                                    <span>Bloomberg Terminal</span>
+                                    <span>Tableau</span>
+                                    <span>PowerPoint</span>
+                                    <span>Financial Analysis</span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <section id="skills" class="section">
+            <h2>Skills</h2>
+            <div class="skills-list">
+                <span>Python</span>
+                <span>Python Certified</span>
+                <span>Pandas</span>
+                <span>NumPy</span>
+                <span>Excel</span>
+                <span>Tableau</span>
+                <span>SQL</span>
+                <span>Power BI</span>
+                <span>Bloomberg Terminal</span>
+                <span>Refinitiv Eikon</span>                
+                <span>Git</span>
+                <span>Financial Modeling</span>
+                <span>Portfolio Theory</span>
+                <span>Jupyter Notebook</span>
+                <span>Data Visualization</span>
+                <span>Statistical Analysis</span>
+                <span>Business Intelligence</span>
+                <span>Data Analysis</span>
+                <span>Financial Analysis</span>
+                <span>CFA Level 1 Candidate</span>
+                <span>Risk Management</span>
+                <span>Portfolio Management</span>
+                <span>Investment Research</span>
+                <span>Equity Analysis</span>
+                <span>Data Cleaning</span>
+                <span>Data Wrangling</span>
+                <span>Data Storytelling</span>
+                <span>Problem Solving</span>
+                <span>Critical Thinking</span>
+                <span>Communication</span>
+                <span>Team Collaboration</span>
+                <span>Adaptability</span>
+                <span>Attention to Detail</span>
+                <span>Time Management</span>
+            </div>
+            </section>
+            <section id="experience" class="section">
+            <h2>Experience</h2>
+
+            <ul class="experience-list">
+
+                <!-- 1. SMIF Equity & Fixed Income Analyst -->
+                <li class="exp-item">
+                <div class="exp-date">Jun 2019 – Jan 2021</div>
+                <div class="exp-card">
+                    <h3>Equity &amp; Fixed Income Analyst</h3>
+                    <p class="exp-company">Cal Poly Pomona Student-Managed Investment Fund</p>
+                    <ul class="exp-bullets">
+                    <li>Led sector analysis for Financials, Real Estate & Utilities within a $200K fund.</li>
+                    <li>Built a Markowitz mean-variance optimizer to tailor asset allocations for the CFA OC RFP.</li>
+                    <li>Performed ongoing performance monitoring, rebalancing & fixed-income risk analysis.</li>
+                    </ul>
+                </div>
+            </li>
+
+                <!-- 2. School Photographer -->
+                <li class="exp-item">
+                <div class="exp-date">Apr 2021 – Present</div>
+                <div class="exp-card">
+                    <h3>Independent Contractor – School Photographer</h3>
+                    <p class="exp-company">Sunset School Portraits</p>
+                    <ul class="exp-bullets">
+                    <li>Manage 200+ student sessions per day under tight timelines, maintaining 100% delivery accuracy.</li>
+                    <li>Built a custom tracking tool (Python/Excel) to forecast daily bookings and streamline workflows.</li>
+                    <li>Coordinated with administrators & educators to ensure smooth, on-time events.</li>
+                    </ul>
+                </div>
+                </li>
+
+                <!-- 3. Uber & Postmates Driver -->
+                <li class="exp-item">
+                <div class="exp-date">Mar 2020 – Apr 2021</div>
+                <div class="exp-card">
+                    <h3>Driver</h3>
+                    <p class="exp-company">Uber & Postmates</p>
+                    <ul class="exp-bullets">
+                    <li>Provided reliable transportation services for parcels and food delivery.</li>
+                    <li>Maintained a 5.0-star rating on Uber for exceptional service.</li>
+                    <li>Utilized efficient route planning to optimize delivery times.</li>
+                    </ul>
+                </div>
+                </li>
+
+                <!-- 4. Owner & Lead Photographer -->
+                <li class="exp-item">
+                <div class="exp-date">2013 – Present</div>
+                <div class="exp-card">
+                    <h3>Owner & Lead Photographer</h3>
+                    <p class="exp-company">Omar Pelcastre Photography</p>
+                    <ul class="exp-bullets">
+                    <li>Founded and grew an event photography business serving weddings, quinceañeras and community events.</li>
+                    <li>Coordinated 12+ hour shoots with bridal shops, event planners and assistants to capture every moment.</li>
+                    <li>Built and maintained custom online galleries for hundreds of clients to view, share, and download proofs.</li>
+                    <li>Managed all client communications, contracts, billing and post-production delivery.</li>
+                    </ul>
+                </div>
+                </li>
+
+            </ul>
+            </section>
+            <footer>
+                &copy; 2025 Omar Pelcastre. All rights reserved.
+                <br> Web Design Inspired by <a href="https://brittanychiang.com" target="_blank" rel="noopener noreferrer">Brittany Chiang</a>.
+            </footer>
+        </main>
     </div>
-  </div>
-
-
-
-
-  <div class="container" id="portfolio">
-    <a class= "portfolio-link" href="portfolio.html"><h2>Portfolio</h2></a>
-    <p>
-      My technical toolkit includes Python programming for data analysis and automation, advanced Excel modeling, and experience with tools such as Tableau, Power BI, and SQL. I've applied these tools to a variety of projects, including forecasting models, performance dashboards, and analytical reports. These efforts demonstrate my ability to deliver clear, actionable insights and well-documented results. My portfolio highlights real-world applications that combine data, finance, and communication.
-    </p>
-    <p>
-      I invite you to explore my portfolio to see how I can contribute to your team. Whether you're looking for a data analyst, financial analyst, or business intelligence professional, I am eager to bring my skills and experience to help drive your organization's success.
-    </p>
-
-    <div class="portfolio-cta" style="text-align: center; text-decoration: solid;">
-      <a href="portfolio.html" class="cta-button">
-        <strong>Explore My Full Portfolio &rarr;</strong>
-        <span>See detailed case studies, dashboards, and project highlights</span>
-      </a>
-    </div>
-
-    <p>
-      <strong>Note:</strong> This portfolio is a work in progress, and I am continuously updating it with new projects and skills. Please check back regularly for the latest updates.
-    </p>
-
-  </div>
-
-  <div class="container" id="skills">
-    <h2>Skills & Certifications</h2>
-
-    <p>My skill set includes:</p>
-    <div class="skills-list-columns">
-      <ul style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-        <li>Python programming for data analysis and automation</li>
-        <li>Advanced Excel modeling and financial analysis</li>
-        <li>Data visualization with Tableau and Power BI</li>
-        <li>SQL for database querying and management</li>
-        <li>Financial modeling and forecasting</li>
-        <li>Equity research and portfolio management</li>
-        <li>Strong analytical and problem-solving skills</li>
-        <li>Excellent communication and presentation abilities</li>
-        <li>Project management and team leadership</li>
-        <li>Adaptability and resourcefulness in dynamic environments</li>
-      </ul>
-    </div>
-    
-
-    <div class="skills-grid">
-      <div class="skill-item">
-        <a href="images/cppdegree.jpg" target="_blank">
-          <img src="images/cppdegree.jpg" alt="Cal Poly Pomona Diploma">
-        </a>
-      </div>
-      <div class="skill-item">
-        <a href="images/UC_pythonfinance.jpg" target="_blank">
-          <img src="images/UC_pythonfinance.jpg" alt="Python for Financial Analysis Certificate">
-        </a>
-      </div>
-      <div class="skill-item">
-        <a href="images/UC_powerbi2025.jpg" target="_blank">
-          <img src="images/UC_powerbi2025.jpg" alt="Microsoft PowerBI Certificate">
-        </a>
-      </div>
-    
-      <div class="skill-item">
-        <a href="images/UC_SQL2025.jpg" target="_blank">
-          <img src="images/UC_SQL2025.jpg" alt="SQL Progamming Basics Certificate">
-        </a>
-      </div>
-      <!-- Add more items here as needed -->
-    </diV>
-  </div>
-
-
-
-
-<div class="container" id="about">
-  <h2>About Me</h2>
-
-  <p>I'm Omar Pelcastre Cabrera, a finance and business intelligence professional with a B.S. in Business
-    Administration from Cal Poly Pomona, concentrating in Finance and Computer Information Systems. During my time at
-    the university, I served as president of the student-managed investment fund, where I was part of the team led a
-    group of talented individuals to a first-place finish in a CFAOC-sponsored portfolio competition. These
-    experiences gave me hands-on exposure to equity research, financial strategy, and data analytics&mdash;foundations
-    I continue to build on today.</p>
-  <p>Before I was authorized to work legally in the U.S., I spent nearly a decade adapting to the constraints of
-    undocumented status. I pursued photography out of both necessity and creativity&mdash;eventually running my own
-    business and contracting with studios to support myself and my family. During the pandemic, I transitioned to gig
-    work, where I developed custom tools to track and forecast my income. These moments shaped my mindset:
-    resourceful, flexible, and grounded in real-world problem-solving. I later joined Sunset School Portraits, a role
-    that allowed me to work while caring for my young son.</p>
-  <p>My technical strengths lie in financial research, equity analysis, and data-driven modeling using Python and
-    Excel. I continue to sharpen these skills through personal projects and ongoing education. My goal is to apply
-    this technical foundation&mdash;and the resilience of my journey&mdash;to a team that values strategic thinking,
-    adaptability, and meaningful impact. What drives me most is the ability to keep learning while supporting my
-    family. I'm most fulfilled when we're together outdoors, discovering something new. I strive to be a great example
-    for my son and a loving husband to my wife, and I define success as doing meaningful work with purpose while
-    providing for those I love.</p>
-</div>
-
-
-  <div class="container" id="links">
-    <h2>LINKS</h2>
-    <div class="contact-grid">
-      <a href="mailto:opelcastre@outlook.com" class="contact-button" target="_blank" title="Send me an email">
-        <img src="https://img.icons8.com/ios-filled/50/000000/email.png" alt="Email Icon">
-        <span>Email</span>
-      </a>
-      <a href="https://www.linkedin.com/in/opelcastre/" class="contact-button" target="_blank"
-        title="Connect with me on LinkedIn">
-        <img src="https://img.icons8.com/ios-filled/50/000000/linkedin.png" alt="LinkedIn Icon">
-        <span>LinkedIn</span>
-      </a>
-      <a href="https://github.com/o-pelcastre" class="contact-button" target="_blank"
-        title="View my projects on GitHub">
-        <img src="https://img.icons8.com/ios-filled/50/000000/github.png" alt="GitHub Icon">
-        <span>GitHub</span>
-      </a>
-    </div>
-  </div>
-</div>
-
-  <footer>
-    <p>&copy; 2025 Omar Pelcastre Cabrera</p>
-  </footer>
-
-  <script>
-    function toggleMenu() {
-      const nav = document.querySelector('nav');
-      nav.classList.toggle('show');
-    }
-  </script>
-
-  <script>
-    // Smooth scroll for internal links
-    document.querySelectorAll('nav a').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href').substring(1);
-        const targetElement = document.getElementById(targetId);
-        if (targetElement) {
-          targetElement.scrollIntoView({ behavior: 'smooth' });
-        }
-      });
-    });
-  </script>
-
-  <script src="js/tableauEmbed.js" defer></script>
-
 </body>
 
 </html>
