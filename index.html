@@ -2,6 +2,18 @@
 <html lang="en">
 
 <head>
+    <meta name="description" content="Omar Pelcastre's personal portfolio showcasing finance and business intelligence projects, skills, and experience." />
+    <meta name="keywords" content="Omar Pelcastre, Finance Analyst, BI Developer, Portfolio, Projects, Skills, Experience" />
+    <meta name="author" content="Omar Pelcastre" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0a0f1e" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="Omar Pelcastre Portfolio" />
+    <meta name="msapplication-TileColor" content="#0a0f1e" />
+    <meta name="image" content="https://o-pelcastre.github.io/assets/img/portfolio-thumbnail.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Omar Pelcastre Portfolio" />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -51,7 +63,7 @@
 
         .left {
             background: var(--bg);
-            padding: 1rem;
+            padding: 2rem;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -69,16 +81,19 @@
         b { color: var(--accent); }
 
         .sidebar-nav {
-            margin-top: 1rem;
-            padding: 0 2rem;
+            width: 100%;
+            margin-top: auto;
             font-size: 0.5rem;
         }
 
 
         .sidebar-social {
             display: flex;
-            padding: 2rem;
+            flex-direction: row;
+            text-align: right;
             margin-top: auto;
+            justify-content: center;
+
         }
 
         .social-link {
@@ -105,7 +120,6 @@
         .social-link:focus .social-icon {
             opacity: 1;
             text-decoration: none;
-            /* full opacity on hover/focus */
         }
 
         nav ul {
@@ -113,8 +127,7 @@
             flex-direction: column;
             gap: 1.5rem;
             list-style: none;
-            margin: 0;
-            padding: 0;
+
         }
 
         nav a {
@@ -127,15 +140,15 @@
 
         nav a:hover {
             color: var(--accent);
+            text-decoration: none; 
         }
 
         .header {
             width: 100%;
-
             flex-direction: column;
             justify-content: normal;
-            align-items: flex-start;
-            padding: 6em 2rem;
+            align-items: center;
+
         }
 
         .header .intro {
@@ -143,19 +156,25 @@
             font-family: var(--font-mono);
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            margin-bottom: 1rem;
+            margin-top: 1.8rem;
         }
 
         .header h1 {
             margin: 0;
-            font-size: 3rem;
+            font-size: 2.5em;
             color: #fff;
         }
 
         .header h2 {
             margin: 0.5rem 0 .5rem;
-            font-size: 2rem;
+            font-size: 1.5rem;
             color: var(--light-text);
+        }
+
+        .header h3 {
+            font-size: 1rem;
+            color: var(--accent);
+            font-weight: 400;
         }
 
         .header p {
@@ -165,27 +184,23 @@
         }
 
         .section {
-            padding: 1rem 1rem;
+
             max-width: 1000px;
-            margin: 0 auto;
+            margin: 0 ;
+            align-items: left;
         }
         a {
             color: var(--accent);
             text-decoration: none;
         }
 
-        a:hover {
-            text-decoration: underline;
-        }
-
         .section h2 {
-            font-size: 2rem;
+            font-size: 1.5rem;
             margin-bottom: 1rem;
             color: #fff;
             background-color: var(--bg);
             background-size: auto;
-            position: relative;
-            margin-left: .5rem;
+
         }
 
         .section p,
@@ -355,32 +370,89 @@
 
 
         footer {
-            text-align: right;
-            padding: 4rem 2rem;
-            font-size: 0.5rem;
+            text-align: center;
+            padding: 2em;
+            font-size: 0.7rem;
             color: var(--light-text);
         }
 
-        /* —— Responsive —— */
-        @media (max-width: 768px) {
-            .layout { display: flex; flex-direction: column; }
-            .left {  width: 100%; align-items: center; justify-content: space-between; padding: 1rem; }
-            .sidebar-nav ul { flex-direction: row; gap: 1rem; }
-            .header { padding: 2rem 1rem; text-align: left; }
-            .header h1 { font-size: 2rem; }
-            .header h2 { font-size: 1.25rem; }
-            .project-card { flex-direction: column; }
-            .project-thumb { width: 100%; height: auto; }
-            .right { padding: 2rem 1rem; }
-            .exp-item { display: block; }
-            .exp-date { text-align: left; margin-bottom: 0.5rem; }
-        }
+    /* —— Responsive —— */
+    @media (max-width: 990px) {
+      .layout {
+        display: block;
+        height: auto;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        grid-template-areas: "left" "right";
+      }
 
-        @media (max-width: 480px) {
-            nav a { font-size: 0.75rem; }
-            .header h1 { font-size: 1.75rem; }
-            .header h2 { font-size: 1rem; }
-        }
+      .left,
+      .right {
+        width: 100%;
+      }
+      .left {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+      }
+      .sidebar-nav ul {
+        flex-direction: column;
+        gap: 1rem;
+        display: none;
+      }
+
+      .sidebar-social {
+        margin-top: 1rem;
+        margin-left: .5rem;
+        align-items: left;
+
+      }
+
+      .header {
+        padding: 1rem 1rem;
+
+      }
+      .header .intro,
+      .header h1,
+      .header h2,
+      .header h3 {
+        text-align: left;
+      }
+      .project-card {
+        flex-direction: column;
+      }
+      .project-thumb {
+        width: 100%;
+        height: auto;
+      }
+      .right {
+        padding: 2rem 1rem;
+      }
+      .exp-item {
+        display: block;
+      }
+      .exp-date {
+        text-align: left;
+        margin-bottom: 0.5rem;
+      }
+
+      .footer {
+        text-align: center;
+        padding: 2rem 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .sidebar-nav a {
+        font-size: 0.75rem;
+      }
+      .header h1 {
+        font-size: 1.75rem;
+      }
+      .header h2 {
+        font-size: 1rem;
+      }
+    }
 
 
 
@@ -395,7 +467,7 @@
                 <div class="intro">Hi, my name is</div>
                 <h1>Omar Pelcastre.</h1>
                 <h2>Finance Analyst & BI Developer</h2>
-                <h3>The devil's in the detail. Let's turn your data into actionable insights.</h3>
+                <h3>The devil's in the details. Actionable insights start here.</h3>
             </header>
             <nav class="sidebar-nav">
                 <ul>
@@ -685,10 +757,12 @@
 
             </ul>
             </section>
-            <footer>
-                &copy; 2025 Omar Pelcastre. All rights reserved.
-                <br> Web Design Inspired by <a href="https://brittanychiang.com" target="_blank" rel="noopener noreferrer">Brittany Chiang</a>.
-            </footer>
+
+          <footer>
+              &copy; 2025 Omar Pelcastre. All rights reserved.
+              <br> Web Design Mostly Inspired by <a href="https://brittanychiang.com" target="_blank" rel="noopener noreferrer">Brittany Chiang</a> minus the fancy stuff.
+          </footer>
+
         </main>
     </div>
 </body>
