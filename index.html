@@ -219,7 +219,27 @@
             margin-bottom: 1rem;
         }
 
-        /* —— Projects List Reset —— */
+        /* Resume button */
+        .resume-link-container { margin-top: 2rem; }
+        .resume-link {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(100,255,218,0.1);
+            color: var(--accent);
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            padding: 0.75rem 1.25rem;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .resume-link .arrow {
+            margin-left: 0.5rem;
+            transition: transform 0.2s;
+        }
+        .resume-link:hover { background: rgba(100,255,218,0.2); }
+        .resume-link:hover .arrow { transform: translateX(3px); }
+
         .projects-list {
             list-style: none;
             margin: 0;
@@ -527,6 +547,11 @@
 
                 <p>Feel free to connect with me on <a href="https://www.linkedin.com/in/o-pelcastre">LinkedIn</a> or checkout my <a href="https://github.com/o-pelcastre">GitHub</a> for more projects.
                 </p>
+                <div class="resume-link-container">
+                    <a href="assets/pdfs/pdf-omarpelcastre-resume.pdf" class="resume-link" target="_blank" rel="noopener noreferrer">
+                        View Resume <span class="arrow">↗</span>
+                    </a>
+                </div>
             </section>
             <section id="projects" class="section">
                 <h2>Current Projects</h2>
