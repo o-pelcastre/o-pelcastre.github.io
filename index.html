@@ -1,483 +1,505 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta name="description" content="Omar Pelcastre's personal portfolio showcasing finance and business intelligence projects, skills, and experience." />
-    <meta name="keywords" content="Omar Pelcastre, Finance Analyst, BI Developer, Portfolio, Projects, Skills, Experience" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="description"
+      content="Omar Pelcastre's personal portfolio showcasing finance and business intelligence projects, skills, and experience."
+    />
+    <meta
+      name="keywords"
+      content="Omar Pelcastre, Finance Analyst, BI Developer, Portfolio, Projects, Skills, Experience, Data Analysis, Business Intelligence, Financial Modeling, Data Visualization, quantitative analysis"
+    />
     <meta name="author" content="Omar Pelcastre" />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#0a0f1e" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="application-name" content="Omar Pelcastre Portfolio" />
     <meta name="msapplication-TileColor" content="#0a0f1e" />
-    <meta name="image" content="https://o-pelcastre.github.io/assets/img/portfolio-thumbnail.png" />
+    <meta
+      name="image"
+      content="https://o-pelcastre.github.io/assets/img/portfolio-thumbnail.png"
+    />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="apple-mobile-web-app-title" content="Omar Pelcastre Portfolio" />
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Omar Pelcastre | Finance Analyst &amp; BI Developer</title>
+
     <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon" />
     <link rel="apple-touch-icon" sizes="180x180" href="assets/img/portfolio-thumbnail.png" />
-    <link href="https://fonts.googleapis.com/css2?family=Calibre:wght@400;600;700&family=SF+Mono&display=swap"
-        rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Fonts & Icons -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Calibre:wght@400;600;700&family=SF+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Styles -->
     <style>
-        :root {
-            --bg: #0a0f1e;
-            --text: #ccd6f6;
-            --light-text: #a8b2d1;
-            --accent: #64ffda;
-            --font-sans: 'Calibre', sans-serif;
-            --font-mono: 'SF Mono', monospace;
-        }
+      :root {
+        --bg: #0a0f1e;
+        --text: #ccd6f6;
+        --light-text: #a8b2d1;
+        --accent: #64ffda;
+        --font-sans: "Calibre", sans-serif;
+        --font-mono: "SF Mono", monospace;
+      }
 
-        *, *::before, *::after {
-            box-sizing: border-box;
-        }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
 
-        html {
-            scroll-behavior: smooth;
-        }
+      html {
+        scroll-behavior: smooth;
+      }
 
-        body {
-            margin: 0;
-            background: var(--bg);
-            color: var(--text);
-            font-family: var(--font-mono);
-            line-height: 1.5;
-        }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: var(--font-mono);
+        line-height: 1.5;
+      }
 
-        html,
-        body {
-            margin: 0;
-            height: 100%;
-        }
+      a {
+        color: var(--accent);
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
 
-        .layout {
-            display: grid;
-            grid-template-columns: 40% 60%;
-            grid-template-rows: auto 1fr;
-            grid-template-areas: "left right";
-            height: 100vh;
-        }
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+      }
 
-        .left {
-            background: var(--bg);
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: flex-end;
-            text-align: right;
-        }
-
-        .right {
-            background: var(--bg);
-            padding: 2rem 2rem;
-            overflow-y: auto;
-            /* scroll content if tall */
-        }
-
-        b { color: var(--accent); }
-
-        .sidebar-nav {
-            width: 100%;
-            margin-top: auto;
-            font-size: 0.5rem;
-        }
-
-
-        .sidebar-social {
-            display: flex;
-            flex-direction: row;
-            text-align: right;
-            margin-top: auto;
-            justify-content: center;
-
-        }
-
-        .social-link {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-decoration: none;
-            width: 25px;
-            height: 25px;
-            margin-right: 1rem;
-            color: var(--light-text);
-        }
-
-        .social-icon {
-            width: 25px;
-            height: 25px;
-            fill: var(--light-text);
-            opacity: 0.75;
-            transition: opacity 0.25s ease-in-out;
-            text-decoration: none;
-        }
-
-        .social-link:hover .social-icon,
-        .social-link:focus .social-icon {
-            opacity: 1;
-            text-decoration: none;
-        }
-
-        nav ul {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            list-style: none;
-
-        }
-
-        nav a {
-            font-size: .8rem;
-            color: var(--light-text);
-            text-decoration: none;
-            letter-spacing: 0.1em;
-            transition: color 0.3s ease;
-        }
-
-        nav a:hover {
-            color: var(--accent);
-            text-decoration: none; 
-        }
-
-
-
-        .header {
-            width: 100%;
-            flex-direction: column;
-            justify-content: normal;
-            align-items: center;
-
-        }
-
-        .header .intro {
-            color: var(--accent);
-            font-family: var(--font-mono);
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            margin-top: 1.3rem;
-        }
-
-        .header h1 {
-            margin: 0;
-            margin-top: 0.5rem;
-            font-size: 2.0em;
-            color: #fff;
-        }
-
-        .header h2 {
-            margin: 0.5rem 0 .5rem;
-            font-size: 1.5rem;
-            color: var(--light-text);
-        }
-
-        .header h3 {
-            font-size: 1rem;
-            color: var(--accent);
-            font-weight: 400;
-        }
-
-        .header p {
-            max-width: 540px;
-            font-size: .75rem;
-            color: var(--light-text);
-        }
-
-        .section {
-
-            max-width: 1000px;
-            margin: 0 ;
-            align-items: left;
-        }
-        a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        .section h2 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #fff;
-            background-color: var(--bg);
-            background-size: auto;
-
-        }
-
-        .section p,
-        .section ul {
-            font-size: 1rem;
-            color: var(--light-text);
-        }
-
-
-        .section ul li {
-            margin-bottom: 1rem;
-        }
-
-        /* Resume button */
-        .resume-link-container { margin-top: 2rem; }
-        .resume-link {
-            display: inline-flex;
-            align-items: center;
-            background: rgba(100,255,218,0.1);
-            color: var(--accent);
-            font-family: var(--font-mono);
-            font-size: 0.9rem;
-            padding: 0.75rem 1.25rem;
-            border-radius: 4px;
-            text-decoration: none;
-            transition: background 0.2s;
-        }
-        .resume-link .arrow {
-            margin-left: 0.5rem;
-            transition: transform 0.2s;
-        }
-        .resume-link:hover { background: rgba(100,255,218,0.2); }
-        .resume-link:hover .arrow { transform: translateX(3px); }
-
-        .projects-list {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-        .project-card {
-            background: rgba(255,255,255,0.05);
-            border-radius: 4px;
-            overflow: hidden;
-            display: flex;
-            margin-bottom: 2rem;
-            transition: background 0.2s;
-        }
-        .project-card:hover {
-            background: rgba(100,255,218,0.1);
-        }
-
-        /* —— Thumbnail —— */
-        .project-thumb {
-            flex: 0 0 100px; /* fixed width */
-            height: 80px;
-            overflow: hidden;
-        }
-        .project-thumb img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* —— Content Pane —— */
-        .project-info {
-            padding: 1rem 1.5rem;
-            display: flex;
-            flex-direction: column;
-        }
-        .project-info h3 {
-            margin: 0;
-            font-size: 1.25rem;
-            color: #fff;
-            display: flex;
-            align-items: center;
-        }
-        .project-info h3 .arrow {
-            margin-left: 0.5rem;
-            transition: transform 0.2s;
-        }
-        .project-card:hover .arrow {
-            transform: translateX(3px);
-        }
-        .project-info p {
-            margin: 0.5rem 0 1rem;
-            color: var(--light-text);
-            font-size: 0.9rem;
-        }
-
-        /* —— Tags —— */
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        .project-tags span {
-            background: rgba(100,255,218,0.15);
-            color: var(--accent);
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            padding: 0.25rem 0.6rem;
-            border-radius: 5px;
-        }
-
-        a.project-link {
-            text-decoration: none;
-
-
-        }
-
-        .skills-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-
-        .skills-list span {
-            background: rgba(100,255,218,0.15);
-            color: var(--accent);
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            padding: 0.25rem 0.6rem;
-            border-radius: 3px;
-        }
-
-        /* —— Experience List & Items —— */
-        .experience-list {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .exp-item {
-            display: grid;
-            grid-template-columns: 100px 1fr;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            align-items: start;
-        }
-
-        /* Dates on the left */
-        .exp-date {
-            font-family: var(--font-mono);
-            font-size: 0.875rem;
-            color: var(--light-text);
-            text-align: right;
-            padding-top: 0.25rem;
-        }
-
-        /* Card on the right */
-        .exp-card {
-            background: rgba(255,255,255,0.05);
-            border-radius: 4px;
-            padding: 1rem 1.5rem;
-            transition: background 0.2s;
-        }
-        .exp-card:hover {
-            background: rgba(100,255,218,0.1);
-        }
-
-        .exp-card h3 {
-            margin: 0;
-            font-size: 1.1rem;
-            color: #fff;
-        }
-
-        .exp-company {
-            margin: 0.25rem 0 0.75rem;
-            font-size: 0.9rem;
-            color: var(--light-text);
-            font-style: italic;
-        }
-
-        .exp-bullets {
-            margin: 0;
-            padding-left: 1.2rem;
-            color: var(--light-text);
-            font-size: 0.875rem;
-        }
-        .exp-bullets li {
-            margin-bottom: 0.5rem;
-        }
-
-
-        footer {
-            text-align: center;
-            padding: 2em;
-            font-size: 0.7rem;
-            color: var(--light-text);
-        }
-
-    /* —— Responsive —— */
-    @media (max-width: 990px) {
+      /* ---------------- Layout ---------------- */
       .layout {
-        display: block;
-        height: auto;
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto;
-        grid-template-areas: "left" "right";
+        display: grid;
+        grid-template-columns: 40% 60%;
+        grid-template-rows: auto 1fr;
+        grid-template-areas: "left right";
+        height: 100vh;
       }
 
-      .left,
-      .right {
-        width: 100%;
-      }
       .left {
+        background: var(--bg);
+        padding: 2rem;
+        display: flex;
         flex-direction: column;
-        align-items: flex-start;
-        padding: 1rem;
+        justify-content: space-between;
+        align-items: flex-end;
+        text-align: right;
       }
-      .sidebar-nav ul {
+
+      .right {
+        background: var(--bg);
+        padding: 2rem;
+        overflow-y: auto;
+        display: flex;
         flex-direction: column;
-        gap: 1rem;
-        display: none;
+        justify-content: flex-start;
+
+      }
+
+      b {
+        color: var(--accent);
+      }
+
+      /* ---------------- Sidebar ---------------- */
+      .sidebar-nav {
+        width: 100%;
+        margin-top: auto;
+        font-size: 0.5rem;
       }
 
       .sidebar-social {
-        margin-top: 1rem;
-        margin-left: .5rem;
-        align-items: left;
-
+        display: flex;
+        flex-direction: row;
+        margin-top: auto;
+        justify-content: center;
       }
 
-      .header {
-        padding: 1rem 1rem;
+      .social-link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 25px;
+        height: 25px;
+        margin-right: 1rem;
+        color: var(--light-text);
+        text-decoration: none;
+      }
 
+      .social-icon {
+        width: 25px;
+        height: 25px;
+        fill: var(--light-text);
+        opacity: 0.75;
+        transition: opacity 0.25s ease-in-out;
       }
-      .header .intro,
-      .header h1,
-      .header h2,
-      .header h3 {
-        text-align: left;
+
+      .social-link:hover .social-icon,
+      .social-link:focus .social-icon {
+        opacity: 1;
       }
-      .project-card {
+
+      nav ul {
+        display: flex;
         flex-direction: column;
+        gap: 1.5rem;
+        list-style: none;
       }
-      .project-thumb {
+
+      nav a {
+        font-size: 0.8rem;
+        color: var(--light-text);
+        text-decoration: none;
+        letter-spacing: 0.1em;
+        transition: color 0.3s ease;
+      }
+
+      nav a:hover {
+        color: var(--accent);
+      }
+
+      /* ---------------- Header ---------------- */
+      .header {
         width: 100%;
-        height: auto;
+        flex-direction: column;
+        align-items: center;
       }
-      .right {
-        padding: 2rem 1rem;
+
+      .header .intro {
+        color: var(--accent);
+        font-family: var(--font-mono);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-top: 1.3rem;
       }
+
+      .header h1 {
+        margin: 0.5rem 0 0;
+        font-size: 2rem;
+        color: #fff;
+      }
+
+      .header h2 {
+        margin: 0.5rem 0;
+        font-size: 1.5rem;
+        color: var(--light-text);
+      }
+
+      .header h3 {
+        font-size: 1rem;
+        color: var(--accent);
+        font-weight: 400;
+      }
+
+      .header p {
+        max-width: 540px;
+        font-size: 0.75rem;
+        color: var(--light-text);
+      }
+
+      /* ---------------- Sections ---------------- */
+      .section {
+        max-width: 1000px;
+        margin: 0;
+      }
+
+      .section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: #fff;
+      }
+
+      .section p,
+      .section ul {
+        font-size: 1rem;
+        color: var(--light-text);
+      }
+
+      .section ul li {
+        margin-bottom: 1rem;
+      }
+
+      /* ---------------- Resume Button ---------------- */
+      .resume-link-container {
+        margin-top: 2rem;
+      }
+
+      .resume-link {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.75rem 1.25rem;
+        border-radius: 4px;
+        background: rgba(100, 255, 218, 0.1);
+        color: var(--accent);
+        font-family: var(--font-mono);
+        font-size: 0.9rem;
+        text-decoration: none;
+        transition: background 0.2s;
+      }
+
+      .resume-link .arrow {
+        margin-left: 0.5rem;
+        transition: transform 0.2s;
+      }
+
+      .resume-link:hover {
+        background: rgba(100, 255, 218, 0.2);
+      }
+
+      .resume-link:hover .arrow {
+        transform: translateX(3px);
+      }
+
+      /* ---------------- Project Cards ---------------- */
+      .projects-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .project-card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 4px;
+        display: flex;
+        margin-bottom: 2rem;
+        overflow: hidden;
+        transition: background 0.2s;
+      }
+
+      .project-card:hover {
+        background: rgba(100, 255, 218, 0.1);
+      }
+
+      .project-thumb {
+        flex: 0 0 100px;
+        height: 80px;
+        overflow: hidden;
+      }
+
+      .project-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .project-info {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem 1.5rem;
+      }
+
+      .project-info h3 {
+        display: flex;
+        align-items: center;
+        margin: 0;
+        font-size: 1.25rem;
+        color: #fff;
+      }
+
+      .project-info h3 .arrow {
+        margin-left: 0.5rem;
+        transition: transform 0.2s;
+      }
+
+      .project-card:hover .arrow {
+        transform: translateX(3px);
+      }
+
+      .project-info p {
+        margin: 0.5rem 0 1rem;
+        font-size: 0.9rem;
+        color: var(--light-text);
+      }
+
+      .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .project-tags span {
+        background: rgba(100, 255, 218, 0.15);
+        padding: 0.25rem 0.6rem;
+        border-radius: 5px;
+        color: var(--accent);
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+      }
+
+      /* ---------------- Skills ---------------- */
+      .skills-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 1rem;
+      }
+
+      .skills-list span {
+        background: rgba(100, 255, 218, 0.15);
+        padding: 0.25rem 0.6rem;
+        border-radius: 3px;
+        color: var(--accent);
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+      }
+
+      /* ---------------- Experience ---------------- */
+      .experience-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
       .exp-item {
-        display: block;
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        align-items: start;
       }
+
       .exp-date {
-        text-align: left;
+        font-family: var(--font-mono);
+        font-size: 0.875rem;
+        color: var(--light-text);
+        text-align: right;
+        padding-top: 0.25rem;
+      }
+
+      .exp-card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 4px;
+        padding: 1rem 1.5rem;
+        transition: background 0.2s;
+      }
+
+      .exp-card:hover {
+        background: rgba(100, 255, 218, 0.1);
+      }
+
+      .exp-card h3 {
+        margin: 0;
+        font-size: 1.1rem;
+        color: #fff;
+      }
+
+      .exp-company {
+        margin: 0.25rem 0 0.75rem;
+        font-size: 0.9rem;
+        color: var(--light-text);
+        font-style: italic;
+      }
+
+      .exp-bullets {
+        margin: 0;
+        padding-left: 1.2rem;
+        font-size: 0.875rem;
+        color: var(--light-text);
+      }
+
+      .exp-bullets li {
         margin-bottom: 0.5rem;
       }
 
-      .footer {
+      /* ---------------- Footer ---------------- */
+      footer {
         text-align: center;
-        padding: 2rem 1rem;
+        padding: 2em;
+        font-size: 0.7rem;
+        color: var(--light-text);
       }
-    }
 
-    @media (max-width: 480px) {
-      .sidebar-nav a {
-        font-size: 0.75rem;
+      /* ---------------- Responsive ---------------- */
+      @media (max-width: 990px) {
+        .layout {
+          display: block;
+          height: auto;
+          grid-template-columns: 1fr;
+          grid-template-areas: "left" "right";
+        }
+
+        .left,
+        .right {
+          width: 100%;
+        }
+
+        .left {
+          padding: 1rem;
+          align-items: flex-start;
+        }
+
+        .sidebar-nav ul {
+          display: none;
+        }
+
+        .sidebar-social {
+          margin-top: 1rem;
+          margin-left: 0.5rem;
+        }
+
+        .header {
+
+          margin-top: 1rem;
+          margin-bottom: 1rem;
+        }
+
+        .header .intro,
+        .header h1,
+        .header h2,
+        .header h3 {
+          text-align: left;
+        }
+
+        .project-card {
+          flex-direction: column;
+        }
+
+        .project-thumb {
+          width: 100%;
+          height: auto;
+        }
+
+        .right {
+          padding: 2rem 1rem;
+        }
+
+        .exp-item {
+          display: block;
+        }
+
+        .exp-date {
+          text-align: left;
+          margin-bottom: 0.5rem;
+        }
       }
-      .header h1 {
-        font-size: 1.75rem;
+
+      @media (max-width: 480px) {
+        .sidebar-nav a {
+          font-size: 0.75rem;
+        }
+
+        .header h1 {
+          font-size: 1.75rem;
+        }
+
+        .header h2 {
+          font-size: 1rem;
+        }
       }
-      .header h2 {
-        font-size: 1rem;
-      }
-    }
-
-
-
     </style>
 </head>
 
@@ -703,55 +725,53 @@
                     </li>
                 </ul>
             </section>
-            <section id="skills" class="section">
-                <h2>Skills</h2>
-                <div class="skills-category">
-                    <h3>Data & Analytics Tools</h3>
-                    <div class="skills-list">
-                        <span>Python</span><span>Power BI</span><span>Tableau</span><span>Google Data
-                            Studio</span><span>Excel/VBA</span><span>Google Sheets</span><span>SQL</span>
-                    </div>
-                    </div>
-                    <div class="skills-category">
-                        <h3>Quantitative & Statistical Methods</h3>
-                        <div class="skills-list">
-                            <span>Statistical Analysis</span><span>Time-Series Analysis</span><span>Regression</span><span>Financial
-                                Modeling</span><span>Portfolio Optimization</span> <span>Risk Management</span>
-                        </div>
-                    </div>
-                    <div class="skills-category">
-                        <h3>DevOps & Collaboration</h3>
-                        <div class="skills-list">
-                            <span>Git & GitHub</span><span>Google Collab</span><span>Jupyter Notebook</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skills-category">
-                        <h3>Data Warehousing & ETL</h3>
-                        <div class="skills-list">
-                            <span>ETL Processes</span><span>Dimensional Modeling</span><span>Data Warehouse
-                                Design</span><span>Infocubes</span><span>SAP/HANA</span><span>SAP/BW</span><span>Excel Pivot
-                                Tables</span><span>Tableau</span><span>SQL</span><span>Microsoft Access</span>
-                        </div>
-                    </div>
 
-                    <div class="skills-category">
-                        <h3>Soft Skills & Leadership</h3>
-                        <div class="skills-list">
-                            <span>Communication</span><span>Project Management</span><span>Team Leadership</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skills-category">
-                        <h3>Certifications &amp; Diplomas</h3>
-                        <div class="skills-list">
-                            <span>B.S. Business Administration (Cal Poly Pomona)</span>
-                            <span>Power BI Data Modelling &amp; Visualisation</span>
-                            <span>Python for Financial Analysis &amp; Algorithmic Trading</span>
-                            <span>SQL Programming Basics</span>
-                        </div>
-                    </div>
-                </section>
+            <section id="skills" class="section">
+            <h2>Skills</h2>
+
+            <!-- 1 ▸ Data & Analytics Tools -->
+            <div class="skills-category">
+                <h3>Data & Analytics Tools</h3>
+                <div class="skills-list">
+                <span>Python</span><span>SQL</span><span>Excel / VBA & PivotTables</span>
+                <span>Google Sheets</span><span>Power BI</span><span>Tableau</span>
+                <span>Microsoft Access</span>
+                </div>
+            </div>
+
+            <!-- 2 ▸ Financial & Statistical Analysis -->
+            <div class="skills-category">
+                <h3>Financial & Statistical Analysis</h3>
+                <div class="skills-list">
+                <span>Financial Modeling</span><span>Portfolio Optimization</span>
+                <span>Risk Management</span><span>Statistical Analysis</span>
+                <span>Regression</span><span>Time-Series Analysis</span>
+                </div>
+            </div>
+
+            <!-- 3 ▸ Data Engineering & Collaboration -->
+            <div class="skills-category">
+                <h3>Data Engineering & Collaboration</h3>
+                <div class="skills-list">
+                <span>ETL Processes</span><span>Dimensional Modeling</span>
+                <span>Data Warehouse Design</span><span>Infocubes</span>
+                <span>SAP HANA / BW</span><span>Git & GitHub</span>
+                <span>Jupyter Notebook</span><span>Google Colab</span>
+                </div>
+            </div>
+
+            <!-- Certifications & Diplomas -->
+            <div class="skills-category">
+                <h3>Certifications &amp; Diplomas</h3>
+                <div class="skills-list">
+                <span>B.S. Business Administration (Cal Poly Pomona)</span>
+                <span>Power BI Data Modelling &amp; Visualisation</span>
+                <span>Python for Financial Analysis &amp; Algorithmic Trading</span>
+                <span>SQL Programming Basics</span>
+                </div>
+            </div>
+            </section>
+
             <section id="experience" class="section">
                 <h2>Experience</h2>
             
