@@ -38,7 +38,7 @@
     />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
 
     <!-- Styles -->
@@ -126,24 +126,41 @@
         display: flex;
         flex-direction: row;
         margin-top: auto;
-        justify-content: center;
+        margin-bottom: 1rem;
+
       }
 
       .social-link {
         display: flex;
-        justify-content: center;
-        align-items: center;
         width: 25px;
         height: 25px;
         margin-right: 1rem;
         color: var(--light-text);
+        fill: var(--light-text);
         text-decoration: none;
+      }
+
+        .social-link svg,
+            .social-link img,
+            .social-icon {
+            width: 100%;
+            height: 100%;
+            fill: currentColor;         /* uses var(--light-text) from the parent link */
+            }
+
+      .fiverr-icon {
+        width: 25px;
+        height: 25px;
+        fill: var(--light-text);
+
+        color: var(--light-text);
       }
 
       .social-icon {
         width: 25px;
         height: 25px;
         fill: var(--light-text);
+        color: var(--light-text);
         opacity: 0.75;
         transition: opacity 0.25s ease-in-out;
       }
@@ -152,6 +169,7 @@
       .social-link:focus .social-icon {
         opacity: 1;
       }
+
 
       nav ul {
         display: flex;
@@ -440,6 +458,7 @@
         .left {
           padding: 1rem;
           align-items: flex-start;
+          text-align: left;
         }
 
         .sidebar-nav ul {
@@ -448,7 +467,6 @@
 
         .sidebar-social {
           margin-top: 1rem;
-          margin-left: 0.5rem;
         }
 
         .header {
@@ -551,6 +569,12 @@
                 >
                     <i class="fab fa-instagram social-icon" aria-hidden="true"></i>
                 </a>
+
+                <a href="mailto:opelcastre@outlook.com" class="social-link" aria-label="Email">
+                    <i class="fas fa-envelope social-icon" aria-hidden="true"></i>
+                </a>
+                
+
             </div>
 
         </aside>
